@@ -20,7 +20,6 @@ public class MyParser {
 
         System.out.println("Variables: ");
         for (int i = 0; i < parser.getVariables().length; i++) {
-            System.out.println(parser.getVariables()[i].getName());
             Variable newVar = new Variable(parser.getVariables()[i]);
             System.out.println(newVar);
             variables.add(newVar);
@@ -35,7 +34,7 @@ public class MyParser {
 
     public static void main(String[] args) {
         //Hardcoded now... but should read in the file through the arguments, -f <XML-NAME>
-        MyParser parser = new MyParser(args[0]);
+        MyParser parser = new MyParser("src/csp/chain4-conflicts.xml");
     }
 
 }
