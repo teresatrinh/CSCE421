@@ -1,10 +1,9 @@
 package csp;
 
-import abscon.instance.tools.InstanceParser;
 import abscon.instance.components.PConstraint;
-
-import java.util.List;
+import abscon.instance.tools.InstanceParser;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyParser {
 
@@ -17,7 +16,7 @@ public class MyParser {
 
         variables = new ArrayList<Variable>();
 
-        System.out.println("Instance name: <Not currently parsed! Need to modify the InstanceParser()>");
+        System.out.println("Instance name: " + parser.getName());
 
         System.out.println("Variables: ");
         for (int i = 0; i < parser.getVariables().length; i++) {
@@ -36,7 +35,7 @@ public class MyParser {
 
     public static void main(String[] args) {
         //Hardcoded now... but should read in the file through the arguments, -f <XML-NAME>
-        MyParser parser = new MyParser("./4queens.supports.xml");
+        MyParser parser = new MyParser(args[0]);
     }
 
 }

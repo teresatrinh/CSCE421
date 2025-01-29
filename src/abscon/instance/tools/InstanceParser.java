@@ -70,6 +70,8 @@ public class InstanceParser {
 
 	private int nbGlobalConstraints;
 
+	private String name;
+
 	/**
 	 * Used for WCSP
 	 */
@@ -122,6 +124,10 @@ public class InstanceParser {
 		return minViolatedConstraints;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	/**
 	 * Used to determine if elements of the instance must be displayed when parsing.
 	 */
@@ -138,6 +144,7 @@ public class InstanceParser {
 	}
 
 	private void parsePresentation(Element presentationElement) {
+		name = presentationElement.getAttribute(InstanceTokens.NAME.trim());
 		String s = presentationElement.getAttribute(InstanceTokens.MAX_CONSTRAINT_ARITY.trim());
 		maxConstraintArity = s.length() == 0 || s.equals("?") ? -1 : Integer.parseInt(s);
 		type = presentationElement.getAttribute(InstanceTokens.TYPE.trim());
