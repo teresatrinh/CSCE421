@@ -8,6 +8,7 @@ import java.util.List;
 public class MyParser {
 
     private List<Variable> variables;
+    private List<Constraint> constraints;
 
     public MyParser(String filename) {
         InstanceParser parser = new InstanceParser();
@@ -34,7 +35,7 @@ public class MyParser {
 
     public static void main(String[] args) {
         //Hardcoded now... but should read in the file through the arguments, -f <XML-NAME>
-        MyParser parser = new MyParser("src/csp/chain4-conflicts.xml");
+        MyParser parser = new MyParser("src/csp/chain4-conflicts.xml"); 
     }
 
 }

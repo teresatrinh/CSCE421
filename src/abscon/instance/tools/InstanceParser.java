@@ -186,7 +186,7 @@ public class InstanceParser {
 		return new PDomain(name, values);
 	}
 
-	private void parseDomains(Element domainsElement) {
+	private void  parseDomains(Element domainsElement) {
 		mapOfDomains = new HashMap<String, PDomain>();
 		int nbDomains = Integer.parseInt(domainsElement.getAttribute(InstanceTokens.NB_DOMAINS));
 		if (displayInstance)
