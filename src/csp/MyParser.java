@@ -1,14 +1,16 @@
 package csp;
 
 import abscon.instance.components.PConstraint;
+import abscon.instance.components.PExtensionConstraint;
+import abscon.instance.components.PIntensionConstraint;
 import abscon.instance.tools.InstanceParser;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyParser {
 
-    private List<Variable> variables;
-    private List<Constraint> constraints;
+    private String name;
+    private ArrayList<Variable> variables;
+    private ArrayList<Constraint> constraints;
 
     public MyParser(String filename) {
         InstanceParser parser = new InstanceParser();
@@ -17,7 +19,9 @@ public class MyParser {
 
         variables = new ArrayList<Variable>();
 
-        System.out.println("Instance name: " + parser.getName());
+        this.name = parser.getName();
+
+        System.out.println("Instance name: " + this.name);
 
         System.out.println("Variables: ");
         for (int i = 0; i < parser.getVariables().length; i++) {
@@ -29,7 +33,15 @@ public class MyParser {
         System.out.println("Constraints: ");
         for (String key : parser.getMapOfConstraints().keySet()) {
             PConstraint con = parser.getMapOfConstraints().get(key);
-            System.out.println(con.getName());
+            Constraint newCon = new Constraint(con, variables);
+            if (con instanceof PIntensionConstraint inten) {
+                ((Intension) newCon).setRelation(inten.getFunction().getName());
+            } else if (con instanceof PExtensionConstraint exten) {
+                ((Extension) newCon).setDefinition(exten.getRelation().getSemantics());
+                ((Extension) newCon).setTuples(exten.getRelation().getTuples().clone());
+            }
+            constraints.add(newCon);
+            System.out.println(newCon);
         }
     }
 

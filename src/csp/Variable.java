@@ -24,8 +24,19 @@ public class Variable {
         currDomain = new Domain(initDomain.getName(), initDomain.getValues().clone());
     }
 
+    public Variable() {
+    }
+
+    public Variable(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Domain getDomain() {
@@ -35,5 +46,7 @@ public class Variable {
     public String toString() {
         return "Name: " + name + ", initial-domain: " + initDomain.toString() + ", constraints: x, neighbors: x";
     }
+
+
     
 }

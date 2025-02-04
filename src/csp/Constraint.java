@@ -1,40 +1,47 @@
 package csp;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import abscon.instance.components.PConstraint;
+import abscon.instance.components.PVariable;
 
 public class Constraint {
     protected String name;
-    protected Variable[] scope;
-    protected String definition;
-    protected int[][] tuples;
+    protected ArrayList<Variable> scope;
 
-    public Constraint(String name, Variable[] scope, String def, int[][] tuples) {
+    public Constraint(String name, ArrayList<Variable> scope) {
         this.name = name;
         this.scope = scope;
-        this.definition = def;
-        this.tuples = tuples;
+    }
+
+    public Constraint(PConstraint constraint, ArrayList<Variable> variables) {
+        this.name = constraint.getName();
+        this.scope = new ArrayList<Variable>();
+        for (PVariable var : constraint.getScope()) {
+            Variable key = new Variable();
+            for (Variable curr : variables) {
+                if (curr.getName().equals(var.getName())) {
+                    key = curr;
+                    break;
+                } else {
+                    key = new Variable(var);
+                }
+            }
+            this.scope.add(key);
+            
+        }
     }
 
     public String toString() {
         String variables = "{";
-        for (int i = 0; i < scope.length; i++) {
-            variables += scope[i];
-            if (i != (scope.length -1)) {
+        for (int i = 0; i < scope.size(); i++) {
+            variables += scope.get(i).getName();
+            if (i != (scope.size() -1)) {
                 variables += ", ";
             }
         }
         variables += "}";
-
-        String list = "{";
-        for (int j = 0; j < tuples.length; j++) {
-            list += Arrays.toString(tuples[j]);
-            if (j != (tuples.length-1)) {
-                list += ", ";
-            }
-        }
-        list += "}";
         
-        return "Name: " + this.name + ", variables: " + variables + ", definition: " + this.definition + " " + list;
+        return "Name: " + this.name + ", variables: " + variables + ", definition: ";
     }
 
 }
