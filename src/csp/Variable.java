@@ -9,12 +9,19 @@ public class Variable {
     //Best to create *deep copy* of the data-structures that are needed for the homework
     protected String name;
 
-    protected Domain domain;
+    protected Domain initDomain;
+
+    protected Domain currDomain;
+
+    protected Constraint[] constraints;
+
+    protected Variable[] neighbors;
 
     public Variable (PVariable var) {
         varRef = var;
         name = var.getName();
-        domain = new Domain(var.getDomain().getName(), var.getDomain().getValues().clone());
+        initDomain = new Domain(var.getDomain().getName(), var.getDomain().getValues().clone());
+        currDomain = new Domain(initDomain.getName(), initDomain.getValues().clone());
     }
 
     public String getName() {
@@ -22,11 +29,11 @@ public class Variable {
     }
 
     public Domain getDomain() {
-        return domain;
+        return initDomain;
     }
 
     public String toString() {
-        return "Name: " + name + ", initial-domain: " + domain.toString() + ", constraints: x, neighbors: x";
+        return "Name: " + name + ", initial-domain: " + initDomain.toString() + ", constraints: x, neighbors: x";
     }
     
 }

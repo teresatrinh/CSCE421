@@ -22,4 +22,12 @@ public class Domain {
         return s;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int[] getValues() {
+        return this.values;
+    }
+
 }
