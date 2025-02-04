@@ -15,6 +15,10 @@ public class Extension extends Constraint{
         this.tuples = tuples;
     }
 
+    public Extension(Constraint con) {
+        super(con.name, con.scope);
+    }
+
     public String toString() {
         String variables = "{";
         for (int i = 0; i < scope.size(); i++) {

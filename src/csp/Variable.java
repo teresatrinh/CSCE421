@@ -1,6 +1,7 @@
 package csp;
 
 import abscon.instance.components.PVariable;
+import java.util.ArrayList;
 
 public class Variable {
     //Keep reference to original variable, just in case it is needed later
@@ -13,9 +14,9 @@ public class Variable {
 
     protected Domain currDomain;
 
-    protected Constraint[] constraints;
+    protected ArrayList<Constraint> constraints = new ArrayList<>();
 
-    protected Variable[] neighbors;
+    protected ArrayList<Variable> neighbors = new ArrayList<>();
 
     public Variable (PVariable var) {
         varRef = var;
@@ -43,10 +44,41 @@ public class Variable {
         return initDomain;
     }
 
+    @Override
     public String toString() {
-        return "Name: " + name + ", initial-domain: " + initDomain.toString() + ", constraints: x, neighbors: x";
+        String cons = "{";
+        for (int i = 0; i < constraints.size(); i++) {
+            cons += constraints.get(i).getName();
+            if (i != (constraints.size()-1)) {
+                cons += ", ";
+            }
+        }
+        cons += "}";
+
+        String neigh = "{";
+        for (int i = 0; i < neighbors.size(); i++) {
+            neigh += neighbors.get(i).getName();
+            if (i != (neighbors.size()-1)) {
+                neigh += ", ";
+            }
+        }
+        neigh += "}";
+
+
+        return "Name: " + name + ", initial-domain: " + initDomain.toString() + ", constraints: " + cons + ", neighbors: " + neigh;
     }
 
+    public boolean equals(Variable o) {
+        return this.name.equals(o.getName());
+    }
+
+    public void addConstraint(Constraint con) {
+        this.constraints.add(con);
+    }
+
+    public void addNeighbor(Variable var) {
+        this.neighbors.add(var);
+    }
 
     
 }

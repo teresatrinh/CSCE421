@@ -11,6 +11,10 @@ public class Intension extends Constraint{
         this.relation = relation;
     }
 
+    public Intension(Constraint con) {
+        super(con.name, con.scope);
+    }
+
     public String toString() {
         String variables = "{";
         for (int i = 0; i < scope.size(); i++) {

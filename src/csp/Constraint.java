@@ -44,4 +44,20 @@ public class Constraint {
         return "Name: " + this.name + ", variables: " + variables + ", definition: ";
     }
 
+    public ArrayList<Variable> getScope() {
+        return scope;
+    }
+
+    public void setScope(ArrayList<Variable> scope) {
+        this.scope = scope;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }
