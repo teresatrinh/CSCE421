@@ -68,7 +68,12 @@ public class MyParser {
 
     public static void main(String[] args) {
         //Hardcoded now... but should read in the file through the arguments, -f <XML-NAME>
-        MyParser parser = new MyParser("src/csp/chain4-conflicts.xml"); 
+
+        for (int i = 0; i < args.length; i += 2) {
+            if (args[i].equals("-f")) {
+                MyParser parser = new MyParser(args[i + 1]);
+            }
+        }
     }
 
 

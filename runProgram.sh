@@ -1,1 +1,1 @@
-java MyParser.java "$@"
+java -Xmx256m -jar csp.jar "$@"
