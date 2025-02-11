@@ -1,0 +1,1 @@
+java MyParser.java "$@"
