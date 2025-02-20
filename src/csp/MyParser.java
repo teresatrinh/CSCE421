@@ -12,14 +12,32 @@ public class MyParser {
     private ArrayList<Variable> variables = new ArrayList<>();
     private ArrayList<Constraint> constraints = new ArrayList<>();
 
+    public MyParser(MyParser problem) {
+        this.name = problem.getName();
+        this.variables = (ArrayList<Variable>) problem.getVariables().clone();
+        this.constraints = (ArrayList<Constraint>) problem.getConstraints().clone();
+    }
+
+    public void print() {
+        System.out.println("Instance name: " + this.name);
+
+        System.out.println("Variables: ");
+        for (Variable var : variables) {
+            System.out.println(var);
+        }
+
+        System.out.println("Constraints: ");
+        for (Constraint con : constraints) {
+            System.out.println(con);
+        }
+    }
+
     public MyParser(String filename) {
         InstanceParser parser = new InstanceParser();
         parser.loadInstance(filename);
         parser.parse(false);
 
         this.name = parser.getName();
-
-        System.out.println("Instance name: " + this.name);
 
         for (int i = 0; i < parser.getVariables().length; i++) {
             Variable newVar = new Variable(parser.getVariables()[i]);
@@ -31,7 +49,7 @@ public class MyParser {
             Constraint newCon = new Constraint(con, variables);
             if (con instanceof PIntensionConstraint inten) {
                 Intension finalCon = new Intension (newCon);
-                finalCon.setRelation(inten.getFunction().getName());
+                finalCon.setRelation(inten.getFunction());
                 constraints.add(finalCon);
             } else if (con instanceof PExtensionConstraint exten) {
                 Extension finalCon = new Extension (newCon);
@@ -54,26 +72,40 @@ public class MyParser {
             }
         }
 
-        System.out.println("Variables: ");
-        for (Variable var : variables) {
-            System.out.println(var);
-        }
-
-        System.out.println("Constraints: ");
-        for (Constraint con : constraints) {
-            System.out.println(con);
-        }
+        this.print();
 
     }
 
-    public static void main(String[] args) {
-        //Hardcoded now... but should read in the file through the arguments, -f <XML-NAME>
+    public ArrayList<Constraint> getConstraints() {
+        return this.constraints;
+    }
 
-        for (int i = 0; i < args.length; i += 2) {
-            if (args[i].equals("-f")) {
-                MyParser parser = new MyParser(args[i + 1]);
-            }
+    public ArrayList<Variable> getVariables() {
+        return this.variables;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void resetDomains() {
+        for (Variable var : this.variables) {
+            var.resetDomain();
         }
+    }
+
+    public static void main(String[] args) {
+
+        //for (int i = 0; i < args.length; i += 2) {
+        //    if (args[i].equals("-f")) {
+        //        MyParser parser = new MyParser(args[i + 1]);
+        //    }
+        //}
+
+        MyParser parser = new MyParser("input/chain4-conflicts.xml");
+
+        Solver solve = new Solver(parser);
+        solve.AC1();
     }
 
 

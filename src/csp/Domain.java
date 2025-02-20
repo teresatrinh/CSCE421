@@ -30,4 +30,23 @@ public class Domain {
         return this.values;
     }
 
+    public void removeValue(int a) {
+        int[] newValues = new int[this.values.length - 1];
+        for (int i = 0, k = 0; i < this.values.length; i++) {
+            if (this.values[i] != a) {
+                newValues[k] = this.values[i];
+                k++;
+            }
+        }
+        this.values = newValues;
+
+    }
+
+    public boolean isEmpty() {
+        if (this.values.length == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

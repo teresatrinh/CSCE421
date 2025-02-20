@@ -57,6 +57,31 @@ public class Extension extends Constraint{
         this.tuples = tuples;
     }
 
-    
+    @Override
+    public boolean check(Variable v1, int a, Variable v2, int b) {
+        boolean supports = false;
+        int indexV1 = this.scope.indexOf(v1);
+        int indexV2 = this.scope.indexOf(v2);
+        for (int[] x : this.tuples) {
+            if (x[indexV1] == a && x[indexV2] == b) {
+                supports = this.def.equals("supports");
+                return supports;
+            }
+        }
+
+        return supports;
+    }
+
+    @Override
+    public boolean check(Variable var, int a) {
+        int index = this.scope.indexOf(var);
+        for (int[] x : this.tuples) {
+            if (x[index] == a) {
+                return true;
+            }
+        }
+
+        return false;
+    }
     
 }

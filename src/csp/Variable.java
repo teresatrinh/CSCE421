@@ -40,8 +40,12 @@ public class Variable {
         this.name = name;
     }
 
-    public Domain getDomain() {
+    public Domain getInitialDomain() {
         return initDomain;
+    }
+
+    public Domain getCurrentDomain() {
+        return currDomain;
     }
 
     @Override
@@ -80,5 +84,17 @@ public class Variable {
         this.neighbors.add(var);
     }
 
+    public void removeValue(int a) {
+        this.currDomain.removeValue(a);
+    }
+
+    public boolean isEmpty() {
+        return this.currDomain.isEmpty();
+    }
+
+    public void resetDomain() {
+        this.currDomain = new Domain(initDomain.getName(), initDomain.getValues().clone());
+    }
+ 
     
 }
