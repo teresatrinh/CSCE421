@@ -11,9 +11,23 @@ public class Solver {
     private int iSize;
     private int fSize;
     protected int fEffect;
+    private boolean ac; 
 
     public Solver(MyParser problem) {
         this.problem = new MyParser(problem);
+    }
+
+    private void calculateStats() {
+        this.iSize = 1;
+        this.fSize = 1;
+        for (Variable var : this.problem.getVariables()) {
+            int initDomainLength = var.getInitialDomain().getValues().length;
+            int currDomainLength = var.getCurrentDomain().getValues().length;
+            this.fval += initDomainLength - currDomainLength;
+            this.iSize *= initDomainLength;
+            this.fSize *= currDomainLength;
+            this.fEffect += Math.log(initDomainLength) - Math.log(currDomainLength);
+        }
     }
 
     private boolean check(Variable v1, int a, Variable v2, int b) {
@@ -64,7 +78,7 @@ public class Solver {
     }
 
     private ArrayList<Variable[]> createQueue() {
-        ArrayList<Variable[]> queue = new ArrayList<Variable[]>();
+        ArrayList<Variable[]> queue = new ArrayList<>();
 
         for (Variable v1 : this.problem.getVariables()) {
             for (Variable v2 : this.problem.getVariables()) {
@@ -93,16 +107,24 @@ public class Solver {
     }
 
     private void printStats() {
+        this.calculateStats();
         System.out.println("Intance name: " + this.problem.getName());
         System.out.println("cc: " + this.cc);
         System.out.println("cpu: " + this.cpuTime);
         System.out.println("fval: " + this.fval);
         System.out.println("iSize: " + this.iSize);
-        System.out.println("fSize: " + this.fSize);
-        System.out.println("fEffect: " + this.fEffect);
+        if (!ac) {
+            System.out.println("fSize: " + this.ac);
+            System.out.println("fEffect: " + this.ac);
+        } else {
+            System.out.println("fSize: " + this.fSize);
+            System.out.println("fEffect: " + this.fEffect);
+        }
+        
     }
 
     public void AC1() {
+        
         this.NC();
         ArrayList<Variable[]> queue = this.createQueue();
 
@@ -112,6 +134,7 @@ public class Solver {
                 boolean updated = revise(tuple[0], tuple[1]);
                 if (tuple[0].isEmpty()) {
                     System.out.println("Domain wipe-out of variable "+ tuple[0].getName() + ". No solution to CSP.");
+                    this.ac = false;
                     change = false;
                     break;
                 } else {
