@@ -46,6 +46,7 @@ public class Intension extends Constraint{
     @Override
     public boolean check(Variable var, int a) {
         //TODO: implement
+        this.relation.getUniversalPostfixExpression();
         return false;
     }
     

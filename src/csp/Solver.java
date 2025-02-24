@@ -1,6 +1,8 @@
 package csp;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class Solver {
 
@@ -125,6 +127,8 @@ public class Solver {
 
     public void AC1() {
         
+        long start = System.currentTimeMillis();
+
         this.NC();
         ArrayList<Variable[]> queue = this.createQueue();
 
@@ -142,8 +146,43 @@ public class Solver {
                 }
             }
         }
+        long end = System.currentTimeMillis();
+        this.cpuTime = end - start;
 
         this.printStats();
+    }
+
+    public void AC3() {
+
+        long start = System.currentTimeMillis();
+
+        this.NC();
+        ArrayList<Variable[]> queue = this.createQueue();
+
+        while (!queue.isEmpty()) {
+            Variable[] tuple = queue.remove(0);
+            if (revise(tuple[0], tuple[1])) {
+                if (tuple[0].isEmpty()) {
+                    System.out.println("Domain wipe-out of variable "+ tuple[0].getName() + ". No solution to CSP.");
+                    break;
+                } else {
+                    for (Variable var : this.problem.getVariables()) {
+                        if (!var.name.equals(tuple[0].name)) {
+                            queue.add(new Variable[] {tuple[0], var});
+                            queue.add(new Variable[] {var, tuple[0]});
+                            Set<Variable[]> set = new LinkedHashSet<>(queue);
+                            queue = new ArrayList<>(set);
+                        }
+                    }
+                }
+            }
+        }
+
+        long end = System.currentTimeMillis();
+        this.cpuTime = end - start;
+
+        this.printStats();
+
     }
 
 }
