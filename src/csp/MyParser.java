@@ -96,16 +96,26 @@ public class MyParser {
 
     public static void main(String[] args) {
 
-        //for (int i = 0; i < args.length; i += 2) {
-        //    if (args[i].equals("-f")) {
-        //        MyParser parser = new MyParser(args[i + 1]);
-        //    }
-        //}
+        MyParser parser = null;
+        Solver solve = null;
 
-        MyParser parser = new MyParser("input/chain4-conflicts.xml");
+        for (int i = 0; i < args.length; i += 2) {
+            if (args[i].equals("-f")) {
+                parser = new MyParser(args[i + 1]);
+                solve = new Solver(parser);
+            } else if (args[i].equals("-a")) {
+                if (args[i+1].equals("ac1")) {
+                    solve.AC1();
+                } else if (args[i+1].equals("ac3")) {
+                    solve.AC3();
+                }
+            }
+        }
 
-        Solver solve = new Solver(parser);
-        solve.AC1();
+        //MyParser parser = new MyParser("input/chain4-conflicts.xml");
+
+        //Solver solve = new Solver(parser);
+        //solve.AC1();
     }
 
 
