@@ -1,0 +1,1199 @@
+Instance name: orderchain
+Variables: 
+Name: V1, initial-domain: {1, 2, 3, 4}, constraints: {C0}, neighbors: {V2}
+Name: V2, initial-domain: {1, 2, 3, 4}, constraints: {C0, C1}, neighbors: {V1, V3}
+Name: V3, initial-domain: {1, 2, 3, 4}, constraints: {C1, C2}, neighbors: {V2, V4}
+Name: V4, initial-domain: {1, 2, 3, 4}, constraints: {C2}, neighbors: {V3}
+Constraints: 
+Name: C0, variables: {V1, V2}, definition: conflicts {[1, 1], [1, 2], [1, 3], [1, 4], [2, 2], [2, 3], [2, 4], [3, 3], [3, 4], [4, 4]}
+Name: C1, variables: {V2, V3}, definition: conflicts {[1, 1], [1, 2], [1, 3], [1, 4], [2, 2], [2, 3], [2, 4], [3, 3], [3, 4], [4, 4]}
+Name: C2, variables: {V3, V4}, definition: conflicts {[1, 1], [1, 2], [1, 3], [1, 4], [2, 2], [2, 3], [2, 4], [3, 3], [3, 4], [4, 4]}
+Intance name: orderchain
+cc: 38
+cpu: 1.0
+fval: 9
+iSize: 256
+fSize: false
+fEffect: false
+Instance name: orderchain
+Variables: 
+Name: V1, initial-domain: {1, 2, 3, 4}, constraints: {C0}, neighbors: {V2}
+Name: V2, initial-domain: {1, 2, 3, 4}, constraints: {C0, C1}, neighbors: {V1, V3}
+Name: V3, initial-domain: {1, 2, 3, 4}, constraints: {C1, C2}, neighbors: {V2, V4}
+Name: V4, initial-domain: {1, 2, 3, 4}, constraints: {C2}, neighbors: {V3}
+Constraints: 
+Name: C0, variables: {V1, V2}, definition: conflicts {[1, 1], [1, 2], [1, 3], [1, 4], [2, 2], [2, 3], [2, 4], [3, 3], [3, 4], [4, 4]}
+Name: C1, variables: {V2, V3}, definition: conflicts {[1, 1], [1, 2], [1, 3], [1, 4], [2, 2], [2, 3], [2, 4], [3, 3], [3, 4], [4, 4]}
+Name: C2, variables: {V3, V4}, definition: conflicts {[1, 1], [1, 2], [1, 3], [1, 4], [2, 2], [2, 3], [2, 4], [3, 3], [3, 4], [4, 4]}
+Intance name: orderchain
+cc: 77
+cpu: 4.0
+fval: 12
+iSize: 256
+fSize: false
+fEffect: false
+Instance name: mutexK4
+Variables: 
+Name: V1, initial-domain: {1, 2}, constraints: {C4, C1}, neighbors: {V4, V2}
+Name: V2, initial-domain: {1, 2}, constraints: {C1, C2}, neighbors: {V1, V3}
+Name: V3, initial-domain: {1, 2}, constraints: {C3, C2}, neighbors: {V4, V2}
+Name: V4, initial-domain: {1, 2}, constraints: {C3, C4}, neighbors: {V3, V1}
+Constraints: 
+Name: C3, variables: {V3, V4}, definition: conflicts {[1, 1], [2, 2]}
+Name: C4, variables: {V4, V1}, definition: conflicts {[1, 1], [2, 2]}
+Name: C1, variables: {V1, V2}, definition: conflicts {[1, 1], [2, 2]}
+Name: C2, variables: {V2, V3}, definition: conflicts {[1, 1], [2, 2]}
+Intance name: mutexK4
+cc: 24
+cpu: 0.0
+fval: 0
+iSize: 16
+fSize: false
+fEffect: false
+Instance name: mutexK4
+Variables: 
+Name: V1, initial-domain: {1, 2}, constraints: {C4, C1}, neighbors: {V4, V2}
+Name: V2, initial-domain: {1, 2}, constraints: {C1, C2}, neighbors: {V1, V3}
+Name: V3, initial-domain: {1, 2}, constraints: {C3, C2}, neighbors: {V4, V2}
+Name: V4, initial-domain: {1, 2}, constraints: {C3, C4}, neighbors: {V3, V1}
+Constraints: 
+Name: C3, variables: {V3, V4}, definition: conflicts {[1, 1], [2, 2]}
+Name: C4, variables: {V4, V1}, definition: conflicts {[1, 1], [2, 2]}
+Name: C1, variables: {V1, V2}, definition: conflicts {[1, 1], [2, 2]}
+Name: C2, variables: {V2, V3}, definition: conflicts {[1, 1], [2, 2]}
+Intance name: mutexK4
+cc: 24
+cpu: 0.0
+fval: 0
+iSize: 16
+fSize: false
+fEffect: false
+Instance name: 3q-conflict
+Variables: 
+Name: Q1, initial-domain: {1, 2, 3}, constraints: {C0, C1}, neighbors: {Q2, Q3}
+Name: Q2, initial-domain: {1, 2, 3}, constraints: {C0, C2}, neighbors: {Q1, Q3}
+Name: Q3, initial-domain: {1, 2, 3}, constraints: {C1, C2}, neighbors: {Q1, Q2}
+Constraints: 
+Name: C0, variables: {Q1, Q2}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3]}
+Name: C1, variables: {Q1, Q3}, definition: conflicts {[1, 1], [1, 3], [2, 2], [3, 1], [3, 3]}
+Name: C2, variables: {Q2, Q3}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3]}
+Domain wipe-out of variable Q3. No solution to CSP.
+Intance name: 3q-conflict
+cc: 27
+cpu: 8.0
+fval: 5
+iSize: 27
+fSize: false
+fEffect: false
+Instance name: 3q-conflict
+Variables: 
+Name: Q1, initial-domain: {1, 2, 3}, constraints: {C0, C1}, neighbors: {Q2, Q3}
+Name: Q2, initial-domain: {1, 2, 3}, constraints: {C0, C2}, neighbors: {Q1, Q3}
+Name: Q3, initial-domain: {1, 2, 3}, constraints: {C1, C2}, neighbors: {Q1, Q2}
+Constraints: 
+Name: C0, variables: {Q1, Q2}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3]}
+Name: C1, variables: {Q1, Q3}, definition: conflicts {[1, 1], [1, 3], [2, 2], [3, 1], [3, 3]}
+Name: C2, variables: {Q2, Q3}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3]}
+Domain wipe-out of variable Q3. No solution to CSP.
+Intance name: 3q-conflict
+cc: 27
+cpu: 13.0
+fval: 5
+iSize: 27
+fSize: false
+fEffect: false
+Instance name: 3q-intension
+Variables: 
+Name: V0, initial-domain: {1, 2, 3}, constraints: {C0, C1}, neighbors: {V1, V2}
+Name: V1, initial-domain: {1, 2, 3}, constraints: {C3, C0}, neighbors: {V2, V0}
+Name: V2, initial-domain: {1, 2, 3}, constraints: {C3, C1}, neighbors: {V1, V0}
+Constraints: 
+Name: C3, variables: {V1, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C0, variables: {V0, V1}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C1, variables: {V0, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Domain wipe-out of variable V2. No solution to CSP.
+Intance name: 3q-intension
+cc: 27
+cpu: 8.0
+fval: 5
+iSize: 27
+fSize: false
+fEffect: false
+Instance name: 3q-intension
+Variables: 
+Name: V0, initial-domain: {1, 2, 3}, constraints: {C0, C1}, neighbors: {V1, V2}
+Name: V1, initial-domain: {1, 2, 3}, constraints: {C3, C0}, neighbors: {V2, V0}
+Name: V2, initial-domain: {1, 2, 3}, constraints: {C3, C1}, neighbors: {V1, V0}
+Constraints: 
+Name: C3, variables: {V1, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C0, variables: {V0, V1}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C1, variables: {V0, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Domain wipe-out of variable V2. No solution to CSP.
+Intance name: 3q-intension
+cc: 27
+cpu: 8.0
+fval: 5
+iSize: 27
+fSize: false
+fEffect: false
+Instance name: 4q-conflicts
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4}, constraints: {C0, C1, C2}, neighbors: {V1, V2, V3}
+Name: V1, initial-domain: {1, 2, 3, 4}, constraints: {C3, C4, C0}, neighbors: {V2, V3, V0}
+Name: V2, initial-domain: {1, 2, 3, 4}, constraints: {C3, C5, C1}, neighbors: {V1, V3, V0}
+Name: V3, initial-domain: {1, 2, 3, 4}, constraints: {C4, C5, C2}, neighbors: {V1, V2, V0}
+Constraints: 
+Name: C3, variables: {V1, V2}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4]}
+Name: C4, variables: {V1, V3}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [4, 2], [4, 4]}
+Name: C5, variables: {V2, V3}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4]}
+Name: C0, variables: {V0, V1}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4]}
+Name: C1, variables: {V0, V2}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [4, 2], [4, 4]}
+Name: C2, variables: {V0, V3}, definition: conflicts {[1, 1], [1, 4], [2, 2], [3, 3], [4, 1], [4, 4]}
+Intance name: 4q-conflicts
+cc: 90
+cpu: 1.0
+fval: 0
+iSize: 256
+fSize: false
+fEffect: false
+Instance name: 4q-conflicts
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4}, constraints: {C0, C1, C2}, neighbors: {V1, V2, V3}
+Name: V1, initial-domain: {1, 2, 3, 4}, constraints: {C3, C4, C0}, neighbors: {V2, V3, V0}
+Name: V2, initial-domain: {1, 2, 3, 4}, constraints: {C3, C5, C1}, neighbors: {V1, V3, V0}
+Name: V3, initial-domain: {1, 2, 3, 4}, constraints: {C4, C5, C2}, neighbors: {V1, V2, V0}
+Constraints: 
+Name: C3, variables: {V1, V2}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4]}
+Name: C4, variables: {V1, V3}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [4, 2], [4, 4]}
+Name: C5, variables: {V2, V3}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4]}
+Name: C0, variables: {V0, V1}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4]}
+Name: C1, variables: {V0, V2}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [4, 2], [4, 4]}
+Name: C2, variables: {V0, V3}, definition: conflicts {[1, 1], [1, 4], [2, 2], [3, 3], [4, 1], [4, 4]}
+Intance name: 4q-conflicts
+cc: 90
+cpu: 0.0
+fval: 0
+iSize: 256
+fSize: false
+fEffect: false
+Instance name: 4q-supports
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4}, constraints: {C0, C1, C2}, neighbors: {V1, V2, V3}
+Name: V1, initial-domain: {1, 2, 3, 4}, constraints: {C3, C4, C0}, neighbors: {V2, V3, V0}
+Name: V2, initial-domain: {1, 2, 3, 4}, constraints: {C3, C5, C1}, neighbors: {V1, V3, V0}
+Name: V3, initial-domain: {1, 2, 3, 4}, constraints: {C4, C5, C2}, neighbors: {V1, V2, V0}
+Constraints: 
+Name: C3, variables: {V1, V2}, definition: supports {[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]}
+Name: C4, variables: {V1, V3}, definition: supports {[1, 2], [1, 4], [2, 1], [2, 3], [3, 2], [3, 4], [4, 1], [4, 3]}
+Name: C5, variables: {V2, V3}, definition: supports {[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]}
+Name: C0, variables: {V0, V1}, definition: supports {[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]}
+Name: C1, variables: {V0, V2}, definition: supports {[1, 2], [1, 4], [2, 1], [2, 3], [3, 2], [3, 4], [4, 1], [4, 3]}
+Name: C2, variables: {V0, V3}, definition: supports {[1, 2], [1, 3], [2, 1], [2, 3], [2, 4], [3, 1], [3, 2], [3, 4], [4, 2], [4, 3]}
+Intance name: 4q-supports
+cc: 48
+cpu: 0.0
+fval: 0
+iSize: 256
+fSize: false
+fEffect: false
+Instance name: 4q-supports
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4}, constraints: {C0, C1, C2}, neighbors: {V1, V2, V3}
+Name: V1, initial-domain: {1, 2, 3, 4}, constraints: {C3, C4, C0}, neighbors: {V2, V3, V0}
+Name: V2, initial-domain: {1, 2, 3, 4}, constraints: {C3, C5, C1}, neighbors: {V1, V3, V0}
+Name: V3, initial-domain: {1, 2, 3, 4}, constraints: {C4, C5, C2}, neighbors: {V1, V2, V0}
+Constraints: 
+Name: C3, variables: {V1, V2}, definition: supports {[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]}
+Name: C4, variables: {V1, V3}, definition: supports {[1, 2], [1, 4], [2, 1], [2, 3], [3, 2], [3, 4], [4, 1], [4, 3]}
+Name: C5, variables: {V2, V3}, definition: supports {[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]}
+Name: C0, variables: {V0, V1}, definition: supports {[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]}
+Name: C1, variables: {V0, V2}, definition: supports {[1, 2], [1, 4], [2, 1], [2, 3], [3, 2], [3, 4], [4, 1], [4, 3]}
+Name: C2, variables: {V0, V3}, definition: supports {[1, 2], [1, 3], [2, 1], [2, 3], [2, 4], [3, 1], [3, 2], [3, 4], [4, 2], [4, 3]}
+Intance name: 4q-supports
+cc: 48
+cpu: 1.0
+fval: 0
+iSize: 256
+fSize: false
+fEffect: false
+Instance name: 5q-intension
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4, 5}, constraints: {C3, C0, C1, C2}, neighbors: {V4, V1, V2, V3}
+Name: V1, initial-domain: {1, 2, 3, 4, 5}, constraints: {C5, C6, C7, C0}, neighbors: {V2, V3, V4, V0}
+Name: V2, initial-domain: {1, 2, 3, 4, 5}, constraints: {C5, C10, C9, C1}, neighbors: {V1, V4, V3, V0}
+Name: V3, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6, C12, C9, C2}, neighbors: {V1, V4, V2, V0}
+Name: V4, initial-domain: {1, 2, 3, 4, 5}, constraints: {C3, C10, C7, C12}, neighbors: {V0, V2, V1, V3}
+Constraints: 
+Name: C3, variables: {V0, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C5, variables: {V1, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C6, variables: {V1, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C10, variables: {V2, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C7, variables: {V1, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C12, variables: {V3, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C9, variables: {V2, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C0, variables: {V0, V1}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C1, variables: {V0, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C2, variables: {V0, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Intance name: 5q-intension
+cc: 164
+cpu: 24.0
+fval: 0
+iSize: 3125
+fSize: false
+fEffect: false
+Instance name: 5q-intension
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4, 5}, constraints: {C3, C0, C1, C2}, neighbors: {V4, V1, V2, V3}
+Name: V1, initial-domain: {1, 2, 3, 4, 5}, constraints: {C5, C6, C7, C0}, neighbors: {V2, V3, V4, V0}
+Name: V2, initial-domain: {1, 2, 3, 4, 5}, constraints: {C5, C10, C9, C1}, neighbors: {V1, V4, V3, V0}
+Name: V3, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6, C12, C9, C2}, neighbors: {V1, V4, V2, V0}
+Name: V4, initial-domain: {1, 2, 3, 4, 5}, constraints: {C3, C10, C7, C12}, neighbors: {V0, V2, V1, V3}
+Constraints: 
+Name: C3, variables: {V0, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C5, variables: {V1, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C6, variables: {V1, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C10, variables: {V2, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C7, variables: {V1, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C12, variables: {V3, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C9, variables: {V2, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C0, variables: {V0, V1}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C1, variables: {V0, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C2, variables: {V0, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Intance name: 5q-intension
+cc: 164
+cpu: 55.0
+fval: 0
+iSize: 3125
+fSize: false
+fEffect: false
+Instance name: 6q-conflicts
+Variables: 
+Name: Q1, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C0, C1, C2, C3, C4}, neighbors: {Q2, Q3, Q4, Q5, Q6}
+Name: Q2, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C0, C5, C6, C7, C8}, neighbors: {Q1, Q3, Q4, Q5, Q6}
+Name: Q3, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C11, C10, C1, C5, C9}, neighbors: {Q6, Q5, Q1, Q2, Q4}
+Name: Q4, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C13, C12, C2, C6, C9}, neighbors: {Q6, Q5, Q1, Q2, Q3}
+Name: Q5, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C10, C12, C14, C3, C7}, neighbors: {Q3, Q4, Q6, Q1, Q2}
+Name: Q6, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C11, C13, C14, C4, C8}, neighbors: {Q3, Q4, Q5, Q1, Q2}
+Constraints: 
+Name: C11, variables: {Q3, Q6}, definition: conflicts {[1, 1], [1, 4], [2, 2], [2, 5], [3, 3], [3, 6], [4, 1], [4, 4], [5, 2], [5, 5], [6, 3], [6, 6]}
+Name: C10, variables: {Q3, Q5}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [3, 5], [4, 2], [4, 4], [4, 6], [5, 3], [5, 5], [6, 4], [6, 6]}
+Name: C13, variables: {Q4, Q6}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [3, 5], [4, 2], [4, 4], [4, 6], [5, 3], [5, 5], [6, 4], [6, 6]}
+Name: C12, variables: {Q4, Q5}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Name: C14, variables: {Q5, Q6}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Name: C0, variables: {Q1, Q2}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Name: C1, variables: {Q1, Q3}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [3, 5], [4, 2], [4, 4], [4, 6], [5, 3], [5, 5], [6, 4], [6, 6]}
+Name: C2, variables: {Q1, Q4}, definition: conflicts {[1, 1], [1, 4], [2, 2], [2, 5], [3, 3], [3, 6], [4, 1], [4, 4], [5, 2], [5, 5], [6, 3], [6, 6]}
+Name: C3, variables: {Q1, Q5}, definition: conflicts {[1, 1], [1, 5], [2, 2], [2, 6], [3, 3], [4, 4], [5, 1], [5, 5], [6, 2], [6, 6]}
+Name: C4, variables: {Q1, Q6}, definition: conflicts {[1, 1], [1, 6], [2, 2], [3, 3], [4, 4], [5, 5], [6, 1], [6, 6]}
+Name: C5, variables: {Q2, Q3}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Name: C6, variables: {Q2, Q4}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [3, 5], [4, 2], [4, 4], [4, 6], [5, 3], [5, 5], [6, 4], [6, 6]}
+Name: C7, variables: {Q2, Q5}, definition: conflicts {[1, 1], [1, 4], [2, 2], [2, 5], [3, 3], [3, 6], [4, 1], [4, 4], [5, 2], [5, 5], [6, 3], [6, 6]}
+Name: C8, variables: {Q2, Q6}, definition: conflicts {[1, 1], [1, 5], [2, 2], [2, 6], [3, 3], [4, 4], [5, 1], [5, 5], [6, 2], [6, 6]}
+Name: C9, variables: {Q3, Q4}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Intance name: 6q-conflicts
+cc: 270
+cpu: 3.0
+fval: 0
+iSize: 46656
+fSize: false
+fEffect: false
+Instance name: 6q-conflicts
+Variables: 
+Name: Q1, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C0, C1, C2, C3, C4}, neighbors: {Q2, Q3, Q4, Q5, Q6}
+Name: Q2, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C0, C5, C6, C7, C8}, neighbors: {Q1, Q3, Q4, Q5, Q6}
+Name: Q3, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C11, C10, C1, C5, C9}, neighbors: {Q6, Q5, Q1, Q2, Q4}
+Name: Q4, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C13, C12, C2, C6, C9}, neighbors: {Q6, Q5, Q1, Q2, Q3}
+Name: Q5, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C10, C12, C14, C3, C7}, neighbors: {Q3, Q4, Q6, Q1, Q2}
+Name: Q6, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C11, C13, C14, C4, C8}, neighbors: {Q3, Q4, Q5, Q1, Q2}
+Constraints: 
+Name: C11, variables: {Q3, Q6}, definition: conflicts {[1, 1], [1, 4], [2, 2], [2, 5], [3, 3], [3, 6], [4, 1], [4, 4], [5, 2], [5, 5], [6, 3], [6, 6]}
+Name: C10, variables: {Q3, Q5}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [3, 5], [4, 2], [4, 4], [4, 6], [5, 3], [5, 5], [6, 4], [6, 6]}
+Name: C13, variables: {Q4, Q6}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [3, 5], [4, 2], [4, 4], [4, 6], [5, 3], [5, 5], [6, 4], [6, 6]}
+Name: C12, variables: {Q4, Q5}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Name: C14, variables: {Q5, Q6}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Name: C0, variables: {Q1, Q2}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Name: C1, variables: {Q1, Q3}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [3, 5], [4, 2], [4, 4], [4, 6], [5, 3], [5, 5], [6, 4], [6, 6]}
+Name: C2, variables: {Q1, Q4}, definition: conflicts {[1, 1], [1, 4], [2, 2], [2, 5], [3, 3], [3, 6], [4, 1], [4, 4], [5, 2], [5, 5], [6, 3], [6, 6]}
+Name: C3, variables: {Q1, Q5}, definition: conflicts {[1, 1], [1, 5], [2, 2], [2, 6], [3, 3], [4, 4], [5, 1], [5, 5], [6, 2], [6, 6]}
+Name: C4, variables: {Q1, Q6}, definition: conflicts {[1, 1], [1, 6], [2, 2], [3, 3], [4, 4], [5, 5], [6, 1], [6, 6]}
+Name: C5, variables: {Q2, Q3}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Name: C6, variables: {Q2, Q4}, definition: conflicts {[1, 1], [1, 3], [2, 2], [2, 4], [3, 1], [3, 3], [3, 5], [4, 2], [4, 4], [4, 6], [5, 3], [5, 5], [6, 4], [6, 6]}
+Name: C7, variables: {Q2, Q5}, definition: conflicts {[1, 1], [1, 4], [2, 2], [2, 5], [3, 3], [3, 6], [4, 1], [4, 4], [5, 2], [5, 5], [6, 3], [6, 6]}
+Name: C8, variables: {Q2, Q6}, definition: conflicts {[1, 1], [1, 5], [2, 2], [2, 6], [3, 3], [4, 4], [5, 1], [5, 5], [6, 2], [6, 6]}
+Name: C9, variables: {Q3, Q4}, definition: conflicts {[1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3], [3, 4], [4, 3], [4, 4], [4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6]}
+Intance name: 6q-conflicts
+cc: 270
+cpu: 2.0
+fval: 0
+iSize: 46656
+fSize: false
+fEffect: false
+Instance name: 6q-intension
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C0, C1, C2, C3, C4}, neighbors: {V1, V2, V3, V4, V5}
+Name: V1, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C0, C5, C6, C7, C8}, neighbors: {V0, V2, V3, V4, V5}
+Name: V2, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C11, C10, C1, C5, C9}, neighbors: {V5, V4, V0, V1, V3}
+Name: V3, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C13, C12, C2, C6, C9}, neighbors: {V5, V4, V0, V1, V2}
+Name: V4, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C10, C12, C14, C3, C7}, neighbors: {V2, V3, V5, V0, V1}
+Name: V5, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C11, C13, C14, C4, C8}, neighbors: {V2, V3, V4, V0, V1}
+Constraints: 
+Name: C11, variables: {V2, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C10, variables: {V2, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C13, variables: {V3, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C12, variables: {V3, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C14, variables: {V4, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C0, variables: {V0, V1}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C1, variables: {V0, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C2, variables: {V0, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C3, variables: {V0, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C4, variables: {V0, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C5, variables: {V1, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C6, variables: {V1, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C7, variables: {V1, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C8, variables: {V1, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C9, variables: {V2, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Intance name: 6q-intension
+cc: 270
+cpu: 104.0
+fval: 0
+iSize: 46656
+fSize: false
+fEffect: false
+Instance name: 6q-intension
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C0, C1, C2, C3, C4}, neighbors: {V1, V2, V3, V4, V5}
+Name: V1, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C0, C5, C6, C7, C8}, neighbors: {V0, V2, V3, V4, V5}
+Name: V2, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C11, C10, C1, C5, C9}, neighbors: {V5, V4, V0, V1, V3}
+Name: V3, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C13, C12, C2, C6, C9}, neighbors: {V5, V4, V0, V1, V2}
+Name: V4, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C10, C12, C14, C3, C7}, neighbors: {V2, V3, V5, V0, V1}
+Name: V5, initial-domain: {1, 2, 3, 4, 5, 6}, constraints: {C11, C13, C14, C4, C8}, neighbors: {V2, V3, V4, V0, V1}
+Constraints: 
+Name: C11, variables: {V2, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C10, variables: {V2, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C13, variables: {V3, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C12, variables: {V3, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C14, variables: {V4, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C0, variables: {V0, V1}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C1, variables: {V0, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C2, variables: {V0, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C3, variables: {V0, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C4, variables: {V0, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C5, variables: {V1, V2}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C6, variables: {V1, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C7, variables: {V1, V4}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C8, variables: {V1, V5}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Name: C9, variables: {V2, V3}, definition: and(ne(X0,X1),ne(abs(sub(X2,X3)),X4))
+Intance name: 6q-intension
+cc: 270
+cpu: 27.0
+fval: 0
+iSize: 46656
+fSize: false
+fEffect: false
+Instance name: ColAustralia-conflicts
+Variables: 
+Name: NSW, initial-domain: {1, 2, 3}, constraints: {C4, C6, C7}, neighbors: {Q, SA, V}
+Name: NT, initial-domain: {1, 2, 3}, constraints: {C3, C0, C2}, neighbors: {Q, WA, SA}
+Name: Q, initial-domain: {1, 2, 3}, constraints: {C3, C4, C5}, neighbors: {NT, NSW, SA}
+Name: SA, initial-domain: {1, 2, 3}, constraints: {C5, C6, C8, C1, C2}, neighbors: {Q, NSW, V, WA, NT}
+Name: T, initial-domain: {1, 2, 3}, constraints: {}, neighbors: {}
+Name: V, initial-domain: {1, 2, 3}, constraints: {C7, C8}, neighbors: {NSW, SA}
+Name: WA, initial-domain: {1, 2, 3}, constraints: {C0, C1}, neighbors: {NT, SA}
+Constraints: 
+Name: C3, variables: {NT, Q}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C4, variables: {Q, NSW}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C5, variables: {Q, SA}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C6, variables: {NSW, SA}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C7, variables: {NSW, V}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C8, variables: {SA, V}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C0, variables: {WA, NT}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C1, variables: {WA, SA}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C2, variables: {NT, SA}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Intance name: ColAustralia-conflicts
+cc: 72
+cpu: 1.0
+fval: 0
+iSize: 2187
+fSize: false
+fEffect: false
+Instance name: ColAustralia-conflicts
+Variables: 
+Name: NSW, initial-domain: {1, 2, 3}, constraints: {C4, C6, C7}, neighbors: {Q, SA, V}
+Name: NT, initial-domain: {1, 2, 3}, constraints: {C3, C0, C2}, neighbors: {Q, WA, SA}
+Name: Q, initial-domain: {1, 2, 3}, constraints: {C3, C4, C5}, neighbors: {NT, NSW, SA}
+Name: SA, initial-domain: {1, 2, 3}, constraints: {C5, C6, C8, C1, C2}, neighbors: {Q, NSW, V, WA, NT}
+Name: T, initial-domain: {1, 2, 3}, constraints: {}, neighbors: {}
+Name: V, initial-domain: {1, 2, 3}, constraints: {C7, C8}, neighbors: {NSW, SA}
+Name: WA, initial-domain: {1, 2, 3}, constraints: {C0, C1}, neighbors: {NT, SA}
+Constraints: 
+Name: C3, variables: {NT, Q}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C4, variables: {Q, NSW}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C5, variables: {Q, SA}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C6, variables: {NSW, SA}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C7, variables: {NSW, V}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C8, variables: {SA, V}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C0, variables: {WA, NT}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C1, variables: {WA, SA}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Name: C2, variables: {NT, SA}, definition: conflicts {[1, 1], [2, 2], [3, 3]}
+Intance name: ColAustralia-conflicts
+cc: 72
+cpu: 1.0
+fval: 0
+iSize: 2187
+fSize: false
+fEffect: false
+Instance name: ColAustralia-intension
+Variables: 
+Name: NewSouthWales, initial-domain: {1, 2, 3}, constraints: {C4, C6, C7}, neighbors: {Queensland, SouthAustralia, Victoria}
+Name: NorthernTerritory, initial-domain: {1, 2, 3}, constraints: {C3, C0, C2}, neighbors: {Queensland, WesternAustralia, SouthAustralia}
+Name: Queensland, initial-domain: {1, 2, 3}, constraints: {C3, C4, C5}, neighbors: {NorthernTerritory, NewSouthWales, SouthAustralia}
+Name: SouthAustralia, initial-domain: {1, 2, 3}, constraints: {C5, C6, C8, C1, C2}, neighbors: {Queensland, NewSouthWales, Victoria, WesternAustralia, NorthernTerritory}
+Name: Tasmania, initial-domain: {1, 2, 3}, constraints: {}, neighbors: {}
+Name: Victoria, initial-domain: {1, 2, 3}, constraints: {C7, C8}, neighbors: {NewSouthWales, SouthAustralia}
+Name: WesternAustralia, initial-domain: {1, 2, 3}, constraints: {C0, C1}, neighbors: {NorthernTerritory, SouthAustralia}
+Constraints: 
+Name: C3, variables: {NorthernTerritory, Queensland}, definition: ne(X0,X1)
+Name: C4, variables: {Queensland, NewSouthWales}, definition: ne(X0,X1)
+Name: C5, variables: {Queensland, SouthAustralia}, definition: ne(X0,X1)
+Name: C6, variables: {NewSouthWales, SouthAustralia}, definition: ne(X0,X1)
+Name: C7, variables: {NewSouthWales, Victoria}, definition: ne(X0,X1)
+Name: C8, variables: {SouthAustralia, Victoria}, definition: ne(X0,X1)
+Name: C0, variables: {WesternAustralia, NorthernTerritory}, definition: ne(X0,X1)
+Name: C1, variables: {WesternAustralia, SouthAustralia}, definition: ne(X0,X1)
+Name: C2, variables: {NorthernTerritory, SouthAustralia}, definition: ne(X0,X1)
+Intance name: ColAustralia-intension
+cc: 72
+cpu: 4.0
+fval: 0
+iSize: 2187
+fSize: false
+fEffect: false
+Instance name: ColAustralia-intension
+Variables: 
+Name: NewSouthWales, initial-domain: {1, 2, 3}, constraints: {C4, C6, C7}, neighbors: {Queensland, SouthAustralia, Victoria}
+Name: NorthernTerritory, initial-domain: {1, 2, 3}, constraints: {C3, C0, C2}, neighbors: {Queensland, WesternAustralia, SouthAustralia}
+Name: Queensland, initial-domain: {1, 2, 3}, constraints: {C3, C4, C5}, neighbors: {NorthernTerritory, NewSouthWales, SouthAustralia}
+Name: SouthAustralia, initial-domain: {1, 2, 3}, constraints: {C5, C6, C8, C1, C2}, neighbors: {Queensland, NewSouthWales, Victoria, WesternAustralia, NorthernTerritory}
+Name: Tasmania, initial-domain: {1, 2, 3}, constraints: {}, neighbors: {}
+Name: Victoria, initial-domain: {1, 2, 3}, constraints: {C7, C8}, neighbors: {NewSouthWales, SouthAustralia}
+Name: WesternAustralia, initial-domain: {1, 2, 3}, constraints: {C0, C1}, neighbors: {NorthernTerritory, SouthAustralia}
+Constraints: 
+Name: C3, variables: {NorthernTerritory, Queensland}, definition: ne(X0,X1)
+Name: C4, variables: {Queensland, NewSouthWales}, definition: ne(X0,X1)
+Name: C5, variables: {Queensland, SouthAustralia}, definition: ne(X0,X1)
+Name: C6, variables: {NewSouthWales, SouthAustralia}, definition: ne(X0,X1)
+Name: C7, variables: {NewSouthWales, Victoria}, definition: ne(X0,X1)
+Name: C8, variables: {SouthAustralia, Victoria}, definition: ne(X0,X1)
+Name: C0, variables: {WesternAustralia, NorthernTerritory}, definition: ne(X0,X1)
+Name: C1, variables: {WesternAustralia, SouthAustralia}, definition: ne(X0,X1)
+Name: C2, variables: {NorthernTerritory, SouthAustralia}, definition: ne(X0,X1)
+Intance name: ColAustralia-intension
+cc: 72
+cpu: 9.0
+fval: 0
+iSize: 2187
+fSize: false
+fEffect: false
+Instance name: zebra
+Variables: 
+Name: Norway, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C13, C12, C15, C14, C62}, neighbors: {blue, Japan, England, Ukrane, Spain}
+Name: England, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C17, C16, C18, C0}, neighbors: {Norway, Spain, Japan, Ukrane, red}
+Name: Japan, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13, C16, C19, C20, C7}, neighbors: {Norway, England, Spain, Ukrane, Parliment}
+Name: Spain, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C17, C19, C21, C1}, neighbors: {Norway, England, Japan, Ukrane, dog}
+Name: Ukrane, initial-domain: {1, 2, 3, 4, 5}, constraints: {C15, C18, C20, C21, C3}, neighbors: {Norway, England, Japan, Spain, tea}
+Name: blue, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C22, C24, C23, C25}, neighbors: {Norway, red, yellow, green, ivory}
+Name: red, initial-domain: {1, 2, 3, 4, 5}, constraints: {C22, C26, C28, C27, C0}, neighbors: {blue, green, ivory, yellow, England}
+Name: green, initial-domain: {1, 2, 3, 4, 5}, constraints: {C23, C26, C29, C2, C8, C30}, neighbors: {blue, red, yellow, coffee, ivory, ivory}
+Name: yellow, initial-domain: {1, 2, 3, 4, 5}, constraints: {C24, C27, C29, C5, C31}, neighbors: {blue, red, green, Kool, ivory}
+Name: ivory, initial-domain: {1, 2, 3, 4, 5}, constraints: {C25, C28, C8, C31, C30}, neighbors: {blue, red, green, yellow, green}
+Name: coffee, initial-domain: {1, 2, 3, 4, 5}, constraints: {C2, C33, C32, C35, C34}, neighbors: {green, oj, tea, water, milk}
+Name: tea, initial-domain: {1, 2, 3, 4, 5}, constraints: {C3, C32, C37, C36, C38}, neighbors: {Ukrane, coffee, milk, oj, water}
+Name: oj, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6, C33, C36, C39, C40}, neighbors: {LuckyStripe, coffee, tea, milk, water}
+Name: milk, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C63, C34, C37, C39}, neighbors: {water, coffee, tea, oj}
+Name: water, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C35, C38, C40}, neighbors: {milk, coffee, tea, oj}
+Name: horse, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C44, C43, C45, C10}, neighbors: {snail, fox, zebra, dog, Kool}
+Name: snail, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C46, C48, C47, C4}, neighbors: {horse, zebra, dog, fox, OldGold}
+Name: zebra, initial-domain: {1, 2, 3, 4, 5}, constraints: {C43, C46, C49, C50}, neighbors: {horse, snail, fox, dog}
+Name: fox, initial-domain: {1, 2, 3, 4, 5}, constraints: {C44, C47, C49, C51, C9}, neighbors: {horse, snail, zebra, dog, Chesterfield}
+Name: dog, initial-domain: {1, 2, 3, 4, 5}, constraints: {C45, C48, C51, C50, C1}, neighbors: {horse, snail, fox, zebra, Spain}
+Name: Chesterfield, initial-domain: {1, 2, 3, 4, 5}, constraints: {C53, C52, C55, C54, C9}, neighbors: {LuckyStripe, Parliment, OldGold, Kool, fox}
+Name: Parliment, initial-domain: {1, 2, 3, 4, 5}, constraints: {C52, C57, C56, C58, C7}, neighbors: {Chesterfield, Kool, LuckyStripe, OldGold, Japan}
+Name: LuckyStripe, initial-domain: {1, 2, 3, 4, 5}, constraints: {C53, C56, C59, C60, C6}, neighbors: {Chesterfield, Parliment, Kool, OldGold, oj}
+Name: Kool, initial-domain: {1, 2, 3, 4, 5}, constraints: {C10, C54, C57, C59, C61, C5}, neighbors: {horse, Chesterfield, Parliment, LuckyStripe, OldGold, yellow}
+Name: OldGold, initial-domain: {1, 2, 3, 4, 5}, constraints: {C55, C58, C60, C61, C4}, neighbors: {Chesterfield, Parliment, LuckyStripe, Kool, snail}
+Constraints: 
+Name: C42, variables: {horse, snail}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C41, variables: {milk, water}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C44, variables: {horse, fox}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C43, variables: {horse, zebra}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C46, variables: {snail, zebra}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C45, variables: {horse, dog}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C48, variables: {snail, dog}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C47, variables: {snail, fox}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C49, variables: {zebra, fox}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C51, variables: {fox, dog}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C50, variables: {zebra, dog}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C53, variables: {Chesterfield, LuckyStripe}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C52, variables: {Chesterfield, Parliment}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C11, variables: {Norway, blue}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C55, variables: {Chesterfield, OldGold}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C10, variables: {Kool, horse}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C54, variables: {Chesterfield, Kool}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C13, variables: {Norway, Japan}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C57, variables: {Parliment, Kool}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C12, variables: {Norway, England}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C56, variables: {Parliment, LuckyStripe}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C15, variables: {Norway, Ukrane}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C59, variables: {LuckyStripe, Kool}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C14, variables: {Norway, Spain}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C58, variables: {Parliment, OldGold}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C17, variables: {England, Spain}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C16, variables: {England, Japan}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C19, variables: {Japan, Spain}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C18, variables: {England, Ukrane}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C60, variables: {LuckyStripe, OldGold}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C62, variables: {Norway}, definition: supports {[1]}
+Name: C61, variables: {Kool, OldGold}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C20, variables: {Japan, Ukrane}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C63, variables: {milk}, definition: supports {[3]}
+Name: C22, variables: {blue, red}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C21, variables: {Spain, Ukrane}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C24, variables: {blue, yellow}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C23, variables: {blue, green}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C26, variables: {red, green}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C25, variables: {blue, ivory}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C28, variables: {red, ivory}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C27, variables: {red, yellow}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C29, variables: {green, yellow}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C0, variables: {England, red}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C1, variables: {Spain, dog}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C2, variables: {coffee, green}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C3, variables: {Ukrane, tea}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C4, variables: {snail, OldGold}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C5, variables: {Kool, yellow}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C6, variables: {LuckyStripe, oj}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C7, variables: {Japan, Parliment}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C8, variables: {green, ivory}, definition: supports {[2, 1], [3, 2], [4, 3], [5, 4]}
+Name: C9, variables: {Chesterfield, fox}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C31, variables: {yellow, ivory}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C30, variables: {green, ivory}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C33, variables: {coffee, oj}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C32, variables: {coffee, tea}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C35, variables: {coffee, water}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C34, variables: {coffee, milk}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C37, variables: {tea, milk}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C36, variables: {tea, oj}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C39, variables: {oj, milk}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C38, variables: {tea, water}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C40, variables: {oj, water}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Intance name: zebra
+cc: 636
+cpu: 18.0
+fval: 16
+iSize: 167814181
+fSize: false
+fEffect: false
+Instance name: zebra
+Variables: 
+Name: Norway, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C13, C12, C15, C14, C62}, neighbors: {blue, Japan, England, Ukrane, Spain}
+Name: England, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C17, C16, C18, C0}, neighbors: {Norway, Spain, Japan, Ukrane, red}
+Name: Japan, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13, C16, C19, C20, C7}, neighbors: {Norway, England, Spain, Ukrane, Parliment}
+Name: Spain, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C17, C19, C21, C1}, neighbors: {Norway, England, Japan, Ukrane, dog}
+Name: Ukrane, initial-domain: {1, 2, 3, 4, 5}, constraints: {C15, C18, C20, C21, C3}, neighbors: {Norway, England, Japan, Spain, tea}
+Name: blue, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C22, C24, C23, C25}, neighbors: {Norway, red, yellow, green, ivory}
+Name: red, initial-domain: {1, 2, 3, 4, 5}, constraints: {C22, C26, C28, C27, C0}, neighbors: {blue, green, ivory, yellow, England}
+Name: green, initial-domain: {1, 2, 3, 4, 5}, constraints: {C23, C26, C29, C2, C8, C30}, neighbors: {blue, red, yellow, coffee, ivory, ivory}
+Name: yellow, initial-domain: {1, 2, 3, 4, 5}, constraints: {C24, C27, C29, C5, C31}, neighbors: {blue, red, green, Kool, ivory}
+Name: ivory, initial-domain: {1, 2, 3, 4, 5}, constraints: {C25, C28, C8, C31, C30}, neighbors: {blue, red, green, yellow, green}
+Name: coffee, initial-domain: {1, 2, 3, 4, 5}, constraints: {C2, C33, C32, C35, C34}, neighbors: {green, oj, tea, water, milk}
+Name: tea, initial-domain: {1, 2, 3, 4, 5}, constraints: {C3, C32, C37, C36, C38}, neighbors: {Ukrane, coffee, milk, oj, water}
+Name: oj, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6, C33, C36, C39, C40}, neighbors: {LuckyStripe, coffee, tea, milk, water}
+Name: milk, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C63, C34, C37, C39}, neighbors: {water, coffee, tea, oj}
+Name: water, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C35, C38, C40}, neighbors: {milk, coffee, tea, oj}
+Name: horse, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C44, C43, C45, C10}, neighbors: {snail, fox, zebra, dog, Kool}
+Name: snail, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C46, C48, C47, C4}, neighbors: {horse, zebra, dog, fox, OldGold}
+Name: zebra, initial-domain: {1, 2, 3, 4, 5}, constraints: {C43, C46, C49, C50}, neighbors: {horse, snail, fox, dog}
+Name: fox, initial-domain: {1, 2, 3, 4, 5}, constraints: {C44, C47, C49, C51, C9}, neighbors: {horse, snail, zebra, dog, Chesterfield}
+Name: dog, initial-domain: {1, 2, 3, 4, 5}, constraints: {C45, C48, C51, C50, C1}, neighbors: {horse, snail, fox, zebra, Spain}
+Name: Chesterfield, initial-domain: {1, 2, 3, 4, 5}, constraints: {C53, C52, C55, C54, C9}, neighbors: {LuckyStripe, Parliment, OldGold, Kool, fox}
+Name: Parliment, initial-domain: {1, 2, 3, 4, 5}, constraints: {C52, C57, C56, C58, C7}, neighbors: {Chesterfield, Kool, LuckyStripe, OldGold, Japan}
+Name: LuckyStripe, initial-domain: {1, 2, 3, 4, 5}, constraints: {C53, C56, C59, C60, C6}, neighbors: {Chesterfield, Parliment, Kool, OldGold, oj}
+Name: Kool, initial-domain: {1, 2, 3, 4, 5}, constraints: {C10, C54, C57, C59, C61, C5}, neighbors: {horse, Chesterfield, Parliment, LuckyStripe, OldGold, yellow}
+Name: OldGold, initial-domain: {1, 2, 3, 4, 5}, constraints: {C55, C58, C60, C61, C4}, neighbors: {Chesterfield, Parliment, LuckyStripe, Kool, snail}
+Constraints: 
+Name: C42, variables: {horse, snail}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C41, variables: {milk, water}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C44, variables: {horse, fox}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C43, variables: {horse, zebra}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C46, variables: {snail, zebra}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C45, variables: {horse, dog}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C48, variables: {snail, dog}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C47, variables: {snail, fox}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C49, variables: {zebra, fox}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C51, variables: {fox, dog}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C50, variables: {zebra, dog}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C53, variables: {Chesterfield, LuckyStripe}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C52, variables: {Chesterfield, Parliment}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C11, variables: {Norway, blue}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C55, variables: {Chesterfield, OldGold}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C10, variables: {Kool, horse}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C54, variables: {Chesterfield, Kool}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C13, variables: {Norway, Japan}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C57, variables: {Parliment, Kool}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C12, variables: {Norway, England}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C56, variables: {Parliment, LuckyStripe}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C15, variables: {Norway, Ukrane}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C59, variables: {LuckyStripe, Kool}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C14, variables: {Norway, Spain}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C58, variables: {Parliment, OldGold}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C17, variables: {England, Spain}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C16, variables: {England, Japan}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C19, variables: {Japan, Spain}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C18, variables: {England, Ukrane}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C60, variables: {LuckyStripe, OldGold}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C62, variables: {Norway}, definition: supports {[1]}
+Name: C61, variables: {Kool, OldGold}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C20, variables: {Japan, Ukrane}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C63, variables: {milk}, definition: supports {[3]}
+Name: C22, variables: {blue, red}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C21, variables: {Spain, Ukrane}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C24, variables: {blue, yellow}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C23, variables: {blue, green}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C26, variables: {red, green}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C25, variables: {blue, ivory}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C28, variables: {red, ivory}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C27, variables: {red, yellow}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C29, variables: {green, yellow}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C0, variables: {England, red}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C1, variables: {Spain, dog}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C2, variables: {coffee, green}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C3, variables: {Ukrane, tea}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C4, variables: {snail, OldGold}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C5, variables: {Kool, yellow}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C6, variables: {LuckyStripe, oj}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C7, variables: {Japan, Parliment}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C8, variables: {green, ivory}, definition: supports {[2, 1], [3, 2], [4, 3], [5, 4]}
+Name: C9, variables: {Chesterfield, fox}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C31, variables: {yellow, ivory}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C30, variables: {green, ivory}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C33, variables: {coffee, oj}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C32, variables: {coffee, tea}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C35, variables: {coffee, water}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C34, variables: {coffee, milk}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C37, variables: {tea, milk}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C36, variables: {tea, oj}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C39, variables: {oj, milk}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C38, variables: {tea, water}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C40, variables: {oj, water}, definition: conflicts {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Intance name: zebra
+cc: 977
+cpu: 81.0
+fval: 16
+iSize: 167814181
+fSize: false
+fEffect: false
+Instance name: zebra-intension-binary
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C15, C19, C20, C22, C21}, neighbors: {V23, V4, V1, V2, V4, V3}
+Name: V1, initial-domain: {1, 2, 3, 4, 5}, constraints: {C19, C24, C23, C25, C5}, neighbors: {V0, V3, V2, V4, V10}
+Name: V2, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C20, C23, C26, C27}, neighbors: {V6, V0, V1, V3, V4}
+Name: V3, initial-domain: {1, 2, 3, 4, 5}, constraints: {C18, C21, C24, C26, C28}, neighbors: {V14, V0, V1, V2, V4}
+Name: V4, initial-domain: {1, 2, 3, 4, 5}, constraints: {C15, C22, C25, C28, C27}, neighbors: {V0, V0, V1, V3, V2}
+Name: V5, initial-domain: {1, 2, 3, 4, 5}, constraints: {C29, C7, C31, C30, C32}, neighbors: {V6, V12, V8, V7, V9}
+Name: V6, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C17, C29, C33, C35, C34}, neighbors: {V2, V19, V5, V7, V9, V8}
+Name: V7, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C30, C33, C37, C36}, neighbors: {V20, V5, V6, V9, V8}
+Name: V8, initial-domain: {1, 2, 3, 4, 5}, constraints: {C16, C31, C34, C36, C38}, neighbors: {V17, V5, V6, V7, V9}
+Name: V9, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13, C32, C35, C37, C38}, neighbors: {V18, V5, V6, V7, V8}
+Name: V10, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C41, C5, C39, C40}, neighbors: {V14, V13, V1, V11, V12}
+Name: V11, initial-domain: {1, 2, 3, 4, 5}, constraints: {C44, C43, C45, C6, C39}, neighbors: {V13, V12, V14, V15, V10}
+Name: V12, initial-domain: {1, 2, 3, 4, 5}, constraints: {C43, C46, C47, C7, C40}, neighbors: {V11, V13, V14, V5, V10}
+Name: V13, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C44, C46, C48, C8}, neighbors: {V10, V11, V12, V14, V22}
+Name: V14, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C45, C48, C47, C18, C9}, neighbors: {V10, V11, V13, V12, V3}
+Name: V15, initial-domain: {1, 2, 3, 4, 5}, constraints: {C49, C51, C50, C52, C6}, neighbors: {V16, V18, V17, V19, V11}
+Name: V16, initial-domain: {1, 2, 3, 4, 5}, constraints: {C49, C53, C55, C54}, neighbors: {V15, V17, V19, V18}
+Name: V17, initial-domain: {1, 2, 3, 4, 5}, constraints: {C50, C53, C57, C56, C16}, neighbors: {V15, V16, V19, V18, V8}
+Name: V18, initial-domain: {1, 2, 3, 4, 5}, constraints: {C51, C54, C13, C56, C58}, neighbors: {V15, V16, V9, V17, V19}
+Name: V19, initial-domain: {1, 2, 3, 4, 5}, constraints: {C52, C55, C57, C58, C17}, neighbors: {V15, V16, V17, V18, V6}
+Name: V20, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C59, C60, C62, C61}, neighbors: {V7, V21, V22, V24, V23}
+Name: V21, initial-domain: {1, 2, 3, 4, 5}, constraints: {C59, C64, C63, C65}, neighbors: {V20, V23, V22, V24}
+Name: V22, initial-domain: {1, 2, 3, 4, 5}, constraints: {C60, C63, C66, C67, C8}, neighbors: {V20, V21, V23, V24, V13}
+Name: V23, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C61, C64, C66, C68}, neighbors: {V0, V20, V21, V22, V24}
+Name: V24, initial-domain: {1, 2, 3, 4, 5}, constraints: {C10, C62, C65, C68, C67}, neighbors: {V20, V21, V23, V22}
+Constraints: 
+Name: C42, variables: {V10, V14}, definition: ne (X0,X1)
+Name: C41, variables: {V10, V13}, definition: ne (X0,X1)
+Name: C44, variables: {V11, V13}, definition: ne (X0,X1)
+Name: C43, variables: {V11, V12}, definition: ne (X0,X1)
+Name: C46, variables: {V12, V13}, definition: ne (X0,X1)
+Name: C45, variables: {V11, V14}, definition: ne (X0,X1)
+Name: C48, variables: {V13, V14}, definition: ne (X0,X1)
+Name: C47, variables: {V12, V14}, definition: ne (X0,X1)
+Name: C49, variables: {V15, V16}, definition: ne (X0,X1)
+Name: C51, variables: {V15, V18}, definition: ne (X0,X1)
+Name: C50, variables: {V15, V17}, definition: ne (X0,X1)
+Name: C53, variables: {V16, V17}, definition: ne (X0,X1)
+Name: C52, variables: {V15, V19}, definition: ne (X0,X1)
+Name: C11, variables: {V7, V20}, definition: eq(X0,X1)
+Name: C55, variables: {V16, V19}, definition: ne (X0,X1)
+Name: C10, variables: {V24}, definition: eq(X0,3)
+Name: C54, variables: {V16, V18}, definition: ne (X0,X1)
+Name: C13, variables: {V9, V18}, definition: eq(X0,X1)
+Name: C57, variables: {V17, V19}, definition: ne (X0,X1)
+Name: C12, variables: {V0, V23}, definition: eq(X0,X1)
+Name: C56, variables: {V17, V18}, definition: ne (X0,X1)
+Name: C15, variables: {V0, V4}, definition: eq(X0,add(X1,1))
+Name: C59, variables: {V20, V21}, definition: ne (X0,X1)
+Name: C14, variables: {V6, V2}, definition: eq(X0,X1)
+Name: C58, variables: {V18, V19}, definition: ne (X0,X1)
+Name: C17, variables: {V19, V6}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C16, variables: {V17, V8}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C19, variables: {V0, V1}, definition: ne (X0,X1)
+Name: C18, variables: {V14, V3}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C60, variables: {V20, V22}, definition: ne (X0,X1)
+Name: C62, variables: {V20, V24}, definition: ne (X0,X1)
+Name: C61, variables: {V20, V23}, definition: ne (X0,X1)
+Name: C20, variables: {V0, V2}, definition: ne (X0,X1)
+Name: C64, variables: {V21, V23}, definition: ne (X0,X1)
+Name: C63, variables: {V21, V22}, definition: ne (X0,X1)
+Name: C22, variables: {V0, V4}, definition: ne (X0,X1)
+Name: C66, variables: {V22, V23}, definition: ne (X0,X1)
+Name: C21, variables: {V0, V3}, definition: ne (X0,X1)
+Name: C65, variables: {V21, V24}, definition: ne (X0,X1)
+Name: C24, variables: {V1, V3}, definition: ne (X0,X1)
+Name: C68, variables: {V23, V24}, definition: ne (X0,X1)
+Name: C23, variables: {V1, V2}, definition: ne (X0,X1)
+Name: C67, variables: {V22, V24}, definition: ne (X0,X1)
+Name: C26, variables: {V2, V3}, definition: ne (X0,X1)
+Name: C25, variables: {V1, V4}, definition: ne (X0,X1)
+Name: C28, variables: {V3, V4}, definition: ne (X0,X1)
+Name: C27, variables: {V2, V4}, definition: ne (X0,X1)
+Name: C29, variables: {V5, V6}, definition: ne (X0,X1)
+Name: C5, variables: {V10, V1}, definition: eq(X0,X1)
+Name: C6, variables: {V11, V15}, definition: eq(X0,X1)
+Name: C7, variables: {V12, V5}, definition: eq(X0,X1)
+Name: C8, variables: {V13, V22}, definition: eq(X0,X1)
+Name: C9, variables: {V14}, definition: eq(X0,1)
+Name: C31, variables: {V5, V8}, definition: ne (X0,X1)
+Name: C30, variables: {V5, V7}, definition: ne (X0,X1)
+Name: C33, variables: {V6, V7}, definition: ne (X0,X1)
+Name: C32, variables: {V5, V9}, definition: ne (X0,X1)
+Name: C35, variables: {V6, V9}, definition: ne (X0,X1)
+Name: C34, variables: {V6, V8}, definition: ne (X0,X1)
+Name: C37, variables: {V7, V9}, definition: ne (X0,X1)
+Name: C36, variables: {V7, V8}, definition: ne (X0,X1)
+Name: C39, variables: {V10, V11}, definition: ne (X0,X1)
+Name: C38, variables: {V8, V9}, definition: ne (X0,X1)
+Name: C40, variables: {V10, V12}, definition: ne (X0,X1)
+Intance name: zebra-intension-binary
+cc: 838
+cpu: 49.0
+fval: 23
+iSize: 167814181
+fSize: false
+fEffect: false
+Instance name: zebra-intension-binary
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C15, C19, C20, C22, C21}, neighbors: {V23, V4, V1, V2, V4, V3}
+Name: V1, initial-domain: {1, 2, 3, 4, 5}, constraints: {C19, C24, C23, C25, C5}, neighbors: {V0, V3, V2, V4, V10}
+Name: V2, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C20, C23, C26, C27}, neighbors: {V6, V0, V1, V3, V4}
+Name: V3, initial-domain: {1, 2, 3, 4, 5}, constraints: {C18, C21, C24, C26, C28}, neighbors: {V14, V0, V1, V2, V4}
+Name: V4, initial-domain: {1, 2, 3, 4, 5}, constraints: {C15, C22, C25, C28, C27}, neighbors: {V0, V0, V1, V3, V2}
+Name: V5, initial-domain: {1, 2, 3, 4, 5}, constraints: {C29, C7, C31, C30, C32}, neighbors: {V6, V12, V8, V7, V9}
+Name: V6, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C17, C29, C33, C35, C34}, neighbors: {V2, V19, V5, V7, V9, V8}
+Name: V7, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C30, C33, C37, C36}, neighbors: {V20, V5, V6, V9, V8}
+Name: V8, initial-domain: {1, 2, 3, 4, 5}, constraints: {C16, C31, C34, C36, C38}, neighbors: {V17, V5, V6, V7, V9}
+Name: V9, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13, C32, C35, C37, C38}, neighbors: {V18, V5, V6, V7, V8}
+Name: V10, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C41, C5, C39, C40}, neighbors: {V14, V13, V1, V11, V12}
+Name: V11, initial-domain: {1, 2, 3, 4, 5}, constraints: {C44, C43, C45, C6, C39}, neighbors: {V13, V12, V14, V15, V10}
+Name: V12, initial-domain: {1, 2, 3, 4, 5}, constraints: {C43, C46, C47, C7, C40}, neighbors: {V11, V13, V14, V5, V10}
+Name: V13, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C44, C46, C48, C8}, neighbors: {V10, V11, V12, V14, V22}
+Name: V14, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C45, C48, C47, C18, C9}, neighbors: {V10, V11, V13, V12, V3}
+Name: V15, initial-domain: {1, 2, 3, 4, 5}, constraints: {C49, C51, C50, C52, C6}, neighbors: {V16, V18, V17, V19, V11}
+Name: V16, initial-domain: {1, 2, 3, 4, 5}, constraints: {C49, C53, C55, C54}, neighbors: {V15, V17, V19, V18}
+Name: V17, initial-domain: {1, 2, 3, 4, 5}, constraints: {C50, C53, C57, C56, C16}, neighbors: {V15, V16, V19, V18, V8}
+Name: V18, initial-domain: {1, 2, 3, 4, 5}, constraints: {C51, C54, C13, C56, C58}, neighbors: {V15, V16, V9, V17, V19}
+Name: V19, initial-domain: {1, 2, 3, 4, 5}, constraints: {C52, C55, C57, C58, C17}, neighbors: {V15, V16, V17, V18, V6}
+Name: V20, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C59, C60, C62, C61}, neighbors: {V7, V21, V22, V24, V23}
+Name: V21, initial-domain: {1, 2, 3, 4, 5}, constraints: {C59, C64, C63, C65}, neighbors: {V20, V23, V22, V24}
+Name: V22, initial-domain: {1, 2, 3, 4, 5}, constraints: {C60, C63, C66, C67, C8}, neighbors: {V20, V21, V23, V24, V13}
+Name: V23, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C61, C64, C66, C68}, neighbors: {V0, V20, V21, V22, V24}
+Name: V24, initial-domain: {1, 2, 3, 4, 5}, constraints: {C10, C62, C65, C68, C67}, neighbors: {V20, V21, V23, V22}
+Constraints: 
+Name: C42, variables: {V10, V14}, definition: ne (X0,X1)
+Name: C41, variables: {V10, V13}, definition: ne (X0,X1)
+Name: C44, variables: {V11, V13}, definition: ne (X0,X1)
+Name: C43, variables: {V11, V12}, definition: ne (X0,X1)
+Name: C46, variables: {V12, V13}, definition: ne (X0,X1)
+Name: C45, variables: {V11, V14}, definition: ne (X0,X1)
+Name: C48, variables: {V13, V14}, definition: ne (X0,X1)
+Name: C47, variables: {V12, V14}, definition: ne (X0,X1)
+Name: C49, variables: {V15, V16}, definition: ne (X0,X1)
+Name: C51, variables: {V15, V18}, definition: ne (X0,X1)
+Name: C50, variables: {V15, V17}, definition: ne (X0,X1)
+Name: C53, variables: {V16, V17}, definition: ne (X0,X1)
+Name: C52, variables: {V15, V19}, definition: ne (X0,X1)
+Name: C11, variables: {V7, V20}, definition: eq(X0,X1)
+Name: C55, variables: {V16, V19}, definition: ne (X0,X1)
+Name: C10, variables: {V24}, definition: eq(X0,3)
+Name: C54, variables: {V16, V18}, definition: ne (X0,X1)
+Name: C13, variables: {V9, V18}, definition: eq(X0,X1)
+Name: C57, variables: {V17, V19}, definition: ne (X0,X1)
+Name: C12, variables: {V0, V23}, definition: eq(X0,X1)
+Name: C56, variables: {V17, V18}, definition: ne (X0,X1)
+Name: C15, variables: {V0, V4}, definition: eq(X0,add(X1,1))
+Name: C59, variables: {V20, V21}, definition: ne (X0,X1)
+Name: C14, variables: {V6, V2}, definition: eq(X0,X1)
+Name: C58, variables: {V18, V19}, definition: ne (X0,X1)
+Name: C17, variables: {V19, V6}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C16, variables: {V17, V8}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C19, variables: {V0, V1}, definition: ne (X0,X1)
+Name: C18, variables: {V14, V3}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C60, variables: {V20, V22}, definition: ne (X0,X1)
+Name: C62, variables: {V20, V24}, definition: ne (X0,X1)
+Name: C61, variables: {V20, V23}, definition: ne (X0,X1)
+Name: C20, variables: {V0, V2}, definition: ne (X0,X1)
+Name: C64, variables: {V21, V23}, definition: ne (X0,X1)
+Name: C63, variables: {V21, V22}, definition: ne (X0,X1)
+Name: C22, variables: {V0, V4}, definition: ne (X0,X1)
+Name: C66, variables: {V22, V23}, definition: ne (X0,X1)
+Name: C21, variables: {V0, V3}, definition: ne (X0,X1)
+Name: C65, variables: {V21, V24}, definition: ne (X0,X1)
+Name: C24, variables: {V1, V3}, definition: ne (X0,X1)
+Name: C68, variables: {V23, V24}, definition: ne (X0,X1)
+Name: C23, variables: {V1, V2}, definition: ne (X0,X1)
+Name: C67, variables: {V22, V24}, definition: ne (X0,X1)
+Name: C26, variables: {V2, V3}, definition: ne (X0,X1)
+Name: C25, variables: {V1, V4}, definition: ne (X0,X1)
+Name: C28, variables: {V3, V4}, definition: ne (X0,X1)
+Name: C27, variables: {V2, V4}, definition: ne (X0,X1)
+Name: C29, variables: {V5, V6}, definition: ne (X0,X1)
+Name: C5, variables: {V10, V1}, definition: eq(X0,X1)
+Name: C6, variables: {V11, V15}, definition: eq(X0,X1)
+Name: C7, variables: {V12, V5}, definition: eq(X0,X1)
+Name: C8, variables: {V13, V22}, definition: eq(X0,X1)
+Name: C9, variables: {V14}, definition: eq(X0,1)
+Name: C31, variables: {V5, V8}, definition: ne (X0,X1)
+Name: C30, variables: {V5, V7}, definition: ne (X0,X1)
+Name: C33, variables: {V6, V7}, definition: ne (X0,X1)
+Name: C32, variables: {V5, V9}, definition: ne (X0,X1)
+Name: C35, variables: {V6, V9}, definition: ne (X0,X1)
+Name: C34, variables: {V6, V8}, definition: ne (X0,X1)
+Name: C37, variables: {V7, V9}, definition: ne (X0,X1)
+Name: C36, variables: {V7, V8}, definition: ne (X0,X1)
+Name: C39, variables: {V10, V11}, definition: ne (X0,X1)
+Name: C38, variables: {V8, V9}, definition: ne (X0,X1)
+Name: C40, variables: {V10, V12}, definition: ne (X0,X1)
+Intance name: zebra-intension-binary
+cc: 2010
+cpu: 150.0
+fval: 35
+iSize: 167814181
+fSize: false
+fEffect: false
+ERROR adding C0
+ERROR adding C1
+ERROR adding C2
+ERROR adding C3
+ERROR adding C4
+Instance name: Zebra-intension-nonbinary
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C15}, neighbors: {V23, V4}
+Name: V1, initial-domain: {1, 2, 3, 4, 5}, constraints: {C5}, neighbors: {V10}
+Name: V2, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14}, neighbors: {V6}
+Name: V3, initial-domain: {1, 2, 3, 4, 5}, constraints: {C18}, neighbors: {V14}
+Name: V4, initial-domain: {1, 2, 3, 4, 5}, constraints: {C15}, neighbors: {V0}
+Name: V5, initial-domain: {1, 2, 3, 4, 5}, constraints: {C7}, neighbors: {V12}
+Name: V6, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C17}, neighbors: {V2, V19}
+Name: V7, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11}, neighbors: {V20}
+Name: V8, initial-domain: {1, 2, 3, 4, 5}, constraints: {C16}, neighbors: {V17}
+Name: V9, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13}, neighbors: {V18}
+Name: V10, initial-domain: {1, 2, 3, 4, 5}, constraints: {C5}, neighbors: {V1}
+Name: V11, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6}, neighbors: {V15}
+Name: V12, initial-domain: {1, 2, 3, 4, 5}, constraints: {C7}, neighbors: {V5}
+Name: V13, initial-domain: {1, 2, 3, 4, 5}, constraints: {C8}, neighbors: {V22}
+Name: V14, initial-domain: {1, 2, 3, 4, 5}, constraints: {C18, C9}, neighbors: {V3}
+Name: V15, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6}, neighbors: {V11}
+Name: V16, initial-domain: {1, 2, 3, 4, 5}, constraints: {}, neighbors: {}
+Name: V17, initial-domain: {1, 2, 3, 4, 5}, constraints: {C16}, neighbors: {V8}
+Name: V18, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13}, neighbors: {V9}
+Name: V19, initial-domain: {1, 2, 3, 4, 5}, constraints: {C17}, neighbors: {V6}
+Name: V20, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11}, neighbors: {V7}
+Name: V21, initial-domain: {1, 2, 3, 4, 5}, constraints: {}, neighbors: {}
+Name: V22, initial-domain: {1, 2, 3, 4, 5}, constraints: {C8}, neighbors: {V13}
+Name: V23, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12}, neighbors: {V0}
+Name: V24, initial-domain: {1, 2, 3, 4, 5}, constraints: {C10}, neighbors: {}
+Constraints: 
+Name: C11, variables: {V7, V20}, definition: eq(X0,X1)
+Name: C10, variables: {V24}, definition: eq(X0,3)
+Name: C13, variables: {V9, V18}, definition: eq(X0,X1)
+Name: C12, variables: {V0, V23}, definition: eq(X0,X1)
+Name: C15, variables: {V0, V4}, definition: eq(X0,add(X1,1))
+Name: C14, variables: {V6, V2}, definition: eq(X0,X1)
+Name: C17, variables: {V19, V6}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C16, variables: {V17, V8}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C18, variables: {V14, V3}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C5, variables: {V10, V1}, definition: eq(X0,X1)
+Name: C6, variables: {V11, V15}, definition: eq(X0,X1)
+Name: C7, variables: {V12, V5}, definition: eq(X0,X1)
+Name: C8, variables: {V13, V22}, definition: eq(X0,X1)
+Name: C9, variables: {V14}, definition: eq(X0,1)
+Intance name: Zebra-intension-nonbinary
+cc: 323
+cpu: 40.0
+fval: 16
+iSize: 167814181
+fSize: false
+fEffect: false
+ERROR adding C0
+ERROR adding C1
+ERROR adding C2
+ERROR adding C3
+ERROR adding C4
+Instance name: Zebra-intension-nonbinary
+Variables: 
+Name: V0, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C15}, neighbors: {V23, V4}
+Name: V1, initial-domain: {1, 2, 3, 4, 5}, constraints: {C5}, neighbors: {V10}
+Name: V2, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14}, neighbors: {V6}
+Name: V3, initial-domain: {1, 2, 3, 4, 5}, constraints: {C18}, neighbors: {V14}
+Name: V4, initial-domain: {1, 2, 3, 4, 5}, constraints: {C15}, neighbors: {V0}
+Name: V5, initial-domain: {1, 2, 3, 4, 5}, constraints: {C7}, neighbors: {V12}
+Name: V6, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C17}, neighbors: {V2, V19}
+Name: V7, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11}, neighbors: {V20}
+Name: V8, initial-domain: {1, 2, 3, 4, 5}, constraints: {C16}, neighbors: {V17}
+Name: V9, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13}, neighbors: {V18}
+Name: V10, initial-domain: {1, 2, 3, 4, 5}, constraints: {C5}, neighbors: {V1}
+Name: V11, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6}, neighbors: {V15}
+Name: V12, initial-domain: {1, 2, 3, 4, 5}, constraints: {C7}, neighbors: {V5}
+Name: V13, initial-domain: {1, 2, 3, 4, 5}, constraints: {C8}, neighbors: {V22}
+Name: V14, initial-domain: {1, 2, 3, 4, 5}, constraints: {C18, C9}, neighbors: {V3}
+Name: V15, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6}, neighbors: {V11}
+Name: V16, initial-domain: {1, 2, 3, 4, 5}, constraints: {}, neighbors: {}
+Name: V17, initial-domain: {1, 2, 3, 4, 5}, constraints: {C16}, neighbors: {V8}
+Name: V18, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13}, neighbors: {V9}
+Name: V19, initial-domain: {1, 2, 3, 4, 5}, constraints: {C17}, neighbors: {V6}
+Name: V20, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11}, neighbors: {V7}
+Name: V21, initial-domain: {1, 2, 3, 4, 5}, constraints: {}, neighbors: {}
+Name: V22, initial-domain: {1, 2, 3, 4, 5}, constraints: {C8}, neighbors: {V13}
+Name: V23, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12}, neighbors: {V0}
+Name: V24, initial-domain: {1, 2, 3, 4, 5}, constraints: {C10}, neighbors: {}
+Constraints: 
+Name: C11, variables: {V7, V20}, definition: eq(X0,X1)
+Name: C10, variables: {V24}, definition: eq(X0,3)
+Name: C13, variables: {V9, V18}, definition: eq(X0,X1)
+Name: C12, variables: {V0, V23}, definition: eq(X0,X1)
+Name: C15, variables: {V0, V4}, definition: eq(X0,add(X1,1))
+Name: C14, variables: {V6, V2}, definition: eq(X0,X1)
+Name: C17, variables: {V19, V6}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C16, variables: {V17, V8}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C18, variables: {V14, V3}, definition: or(eq(X0,sub(X1,1)),eq(X0,add(X1,1)))
+Name: C5, variables: {V10, V1}, definition: eq(X0,X1)
+Name: C6, variables: {V11, V15}, definition: eq(X0,X1)
+Name: C7, variables: {V12, V5}, definition: eq(X0,X1)
+Name: C8, variables: {V13, V22}, definition: eq(X0,X1)
+Name: C9, variables: {V14}, definition: eq(X0,1)
+Domain wipe-out of variable V0. No solution to CSP.
+Intance name: Zebra-intension-nonbinary
+cc: 356
+cpu: 62.0
+fval: 24
+iSize: 167814181
+fSize: false
+fEffect: false
+Instance name: zebra-supports
+Variables: 
+Name: Norway, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C13, C12, C15, C14, C62}, neighbors: {blue, Japan, England, Ukrane, Spain}
+Name: England, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C17, C16, C18, C0}, neighbors: {Norway, Spain, Japan, Ukrane, red}
+Name: Japan, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13, C16, C19, C20, C7}, neighbors: {Norway, England, Spain, Ukrane, Parliment}
+Name: Spain, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C17, C19, C21, C1}, neighbors: {Norway, England, Japan, Ukrane, dog}
+Name: Ukrane, initial-domain: {1, 2, 3, 4, 5}, constraints: {C15, C18, C20, C21, C3}, neighbors: {Norway, England, Japan, Spain, tea}
+Name: blue, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C22, C24, C23, C25}, neighbors: {Norway, red, yellow, green, ivory}
+Name: red, initial-domain: {1, 2, 3, 4, 5}, constraints: {C22, C26, C28, C27, C0}, neighbors: {blue, green, ivory, yellow, England}
+Name: green, initial-domain: {1, 2, 3, 4, 5}, constraints: {C23, C26, C29, C2, C8, C30}, neighbors: {blue, red, yellow, coffee, ivory, ivory}
+Name: yellow, initial-domain: {1, 2, 3, 4, 5}, constraints: {C24, C27, C29, C5, C31}, neighbors: {blue, red, green, Kool, ivory}
+Name: ivory, initial-domain: {1, 2, 3, 4, 5}, constraints: {C25, C28, C8, C31, C30}, neighbors: {blue, red, green, yellow, green}
+Name: coffee, initial-domain: {1, 2, 3, 4, 5}, constraints: {C2, C33, C32, C35, C34}, neighbors: {green, oj, tea, water, milk}
+Name: tea, initial-domain: {1, 2, 3, 4, 5}, constraints: {C3, C32, C37, C36, C38}, neighbors: {Ukrane, coffee, milk, oj, water}
+Name: oj, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6, C33, C36, C39, C40}, neighbors: {LuckyStripe, coffee, tea, milk, water}
+Name: milk, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C63, C34, C37, C39}, neighbors: {water, coffee, tea, oj}
+Name: water, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C35, C38, C40}, neighbors: {milk, coffee, tea, oj}
+Name: horse, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C44, C43, C45, C10}, neighbors: {snail, fox, zebra, dog, Kool}
+Name: snail, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C46, C48, C47, C4}, neighbors: {horse, zebra, dog, fox, OldGold}
+Name: zebra, initial-domain: {1, 2, 3, 4, 5}, constraints: {C43, C46, C49, C50}, neighbors: {horse, snail, fox, dog}
+Name: fox, initial-domain: {1, 2, 3, 4, 5}, constraints: {C44, C47, C49, C51, C9}, neighbors: {horse, snail, zebra, dog, Chesterfield}
+Name: dog, initial-domain: {1, 2, 3, 4, 5}, constraints: {C45, C48, C51, C50, C1}, neighbors: {horse, snail, fox, zebra, Spain}
+Name: Chesterfield, initial-domain: {1, 2, 3, 4, 5}, constraints: {C53, C52, C55, C54, C9}, neighbors: {LuckyStripe, Parliment, OldGold, Kool, fox}
+Name: Parliment, initial-domain: {1, 2, 3, 4, 5}, constraints: {C52, C57, C56, C58, C7}, neighbors: {Chesterfield, Kool, LuckyStripe, OldGold, Japan}
+Name: LuckyStripe, initial-domain: {1, 2, 3, 4, 5}, constraints: {C53, C56, C59, C60, C6}, neighbors: {Chesterfield, Parliment, Kool, OldGold, oj}
+Name: Kool, initial-domain: {1, 2, 3, 4, 5}, constraints: {C10, C54, C57, C59, C61, C5}, neighbors: {horse, Chesterfield, Parliment, LuckyStripe, OldGold, yellow}
+Name: OldGold, initial-domain: {1, 2, 3, 4, 5}, constraints: {C55, C58, C60, C61, C4}, neighbors: {Chesterfield, Parliment, LuckyStripe, Kool, snail}
+Constraints: 
+Name: C42, variables: {horse, snail}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C41, variables: {milk, water}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C44, variables: {horse, fox}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C43, variables: {horse, zebra}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C46, variables: {snail, zebra}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C45, variables: {horse, dog}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C48, variables: {snail, dog}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C47, variables: {snail, fox}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C49, variables: {zebra, fox}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C51, variables: {fox, dog}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C50, variables: {zebra, dog}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C53, variables: {Chesterfield, LuckyStripe}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C52, variables: {Chesterfield, Parliment}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C11, variables: {Norway, blue}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C55, variables: {Chesterfield, OldGold}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C10, variables: {Kool, horse}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C54, variables: {Chesterfield, Kool}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C13, variables: {Norway, Japan}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C57, variables: {Parliment, Kool}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C12, variables: {Norway, England}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C56, variables: {Parliment, LuckyStripe}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C15, variables: {Norway, Ukrane}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C59, variables: {LuckyStripe, Kool}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C14, variables: {Norway, Spain}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C58, variables: {Parliment, OldGold}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C17, variables: {England, Spain}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C16, variables: {England, Japan}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C19, variables: {Japan, Spain}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C18, variables: {England, Ukrane}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C60, variables: {LuckyStripe, OldGold}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C62, variables: {Norway}, definition: supports {[1]}
+Name: C61, variables: {Kool, OldGold}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C20, variables: {Japan, Ukrane}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C63, variables: {milk}, definition: supports {[3]}
+Name: C22, variables: {blue, red}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C21, variables: {Spain, Ukrane}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C24, variables: {blue, yellow}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C23, variables: {blue, green}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C26, variables: {red, green}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C25, variables: {blue, ivory}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C28, variables: {red, ivory}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C27, variables: {red, yellow}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C29, variables: {green, yellow}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C0, variables: {England, red}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C1, variables: {Spain, dog}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C2, variables: {coffee, green}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C3, variables: {Ukrane, tea}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C4, variables: {snail, OldGold}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C5, variables: {Kool, yellow}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C6, variables: {LuckyStripe, oj}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C7, variables: {Japan, Parliment}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C8, variables: {green, ivory}, definition: supports {[2, 1], [3, 2], [4, 3], [5, 4]}
+Name: C9, variables: {Chesterfield, fox}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C31, variables: {yellow, ivory}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C30, variables: {green, ivory}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C33, variables: {coffee, oj}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C32, variables: {coffee, tea}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C35, variables: {coffee, water}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C34, variables: {coffee, milk}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C37, variables: {tea, milk}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C36, variables: {tea, oj}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C39, variables: {oj, milk}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C38, variables: {tea, water}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C40, variables: {oj, water}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Intance name: zebra-supports
+cc: 576
+cpu: 18.0
+fval: 8
+iSize: 167814181
+fSize: false
+fEffect: false
+Instance name: zebra-supports
+Variables: 
+Name: Norway, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C13, C12, C15, C14, C62}, neighbors: {blue, Japan, England, Ukrane, Spain}
+Name: England, initial-domain: {1, 2, 3, 4, 5}, constraints: {C12, C17, C16, C18, C0}, neighbors: {Norway, Spain, Japan, Ukrane, red}
+Name: Japan, initial-domain: {1, 2, 3, 4, 5}, constraints: {C13, C16, C19, C20, C7}, neighbors: {Norway, England, Spain, Ukrane, Parliment}
+Name: Spain, initial-domain: {1, 2, 3, 4, 5}, constraints: {C14, C17, C19, C21, C1}, neighbors: {Norway, England, Japan, Ukrane, dog}
+Name: Ukrane, initial-domain: {1, 2, 3, 4, 5}, constraints: {C15, C18, C20, C21, C3}, neighbors: {Norway, England, Japan, Spain, tea}
+Name: blue, initial-domain: {1, 2, 3, 4, 5}, constraints: {C11, C22, C24, C23, C25}, neighbors: {Norway, red, yellow, green, ivory}
+Name: red, initial-domain: {1, 2, 3, 4, 5}, constraints: {C22, C26, C28, C27, C0}, neighbors: {blue, green, ivory, yellow, England}
+Name: green, initial-domain: {1, 2, 3, 4, 5}, constraints: {C23, C26, C29, C2, C8, C30}, neighbors: {blue, red, yellow, coffee, ivory, ivory}
+Name: yellow, initial-domain: {1, 2, 3, 4, 5}, constraints: {C24, C27, C29, C5, C31}, neighbors: {blue, red, green, Kool, ivory}
+Name: ivory, initial-domain: {1, 2, 3, 4, 5}, constraints: {C25, C28, C8, C31, C30}, neighbors: {blue, red, green, yellow, green}
+Name: coffee, initial-domain: {1, 2, 3, 4, 5}, constraints: {C2, C33, C32, C35, C34}, neighbors: {green, oj, tea, water, milk}
+Name: tea, initial-domain: {1, 2, 3, 4, 5}, constraints: {C3, C32, C37, C36, C38}, neighbors: {Ukrane, coffee, milk, oj, water}
+Name: oj, initial-domain: {1, 2, 3, 4, 5}, constraints: {C6, C33, C36, C39, C40}, neighbors: {LuckyStripe, coffee, tea, milk, water}
+Name: milk, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C63, C34, C37, C39}, neighbors: {water, coffee, tea, oj}
+Name: water, initial-domain: {1, 2, 3, 4, 5}, constraints: {C41, C35, C38, C40}, neighbors: {milk, coffee, tea, oj}
+Name: horse, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C44, C43, C45, C10}, neighbors: {snail, fox, zebra, dog, Kool}
+Name: snail, initial-domain: {1, 2, 3, 4, 5}, constraints: {C42, C46, C48, C47, C4}, neighbors: {horse, zebra, dog, fox, OldGold}
+Name: zebra, initial-domain: {1, 2, 3, 4, 5}, constraints: {C43, C46, C49, C50}, neighbors: {horse, snail, fox, dog}
+Name: fox, initial-domain: {1, 2, 3, 4, 5}, constraints: {C44, C47, C49, C51, C9}, neighbors: {horse, snail, zebra, dog, Chesterfield}
+Name: dog, initial-domain: {1, 2, 3, 4, 5}, constraints: {C45, C48, C51, C50, C1}, neighbors: {horse, snail, fox, zebra, Spain}
+Name: Chesterfield, initial-domain: {1, 2, 3, 4, 5}, constraints: {C53, C52, C55, C54, C9}, neighbors: {LuckyStripe, Parliment, OldGold, Kool, fox}
+Name: Parliment, initial-domain: {1, 2, 3, 4, 5}, constraints: {C52, C57, C56, C58, C7}, neighbors: {Chesterfield, Kool, LuckyStripe, OldGold, Japan}
+Name: LuckyStripe, initial-domain: {1, 2, 3, 4, 5}, constraints: {C53, C56, C59, C60, C6}, neighbors: {Chesterfield, Parliment, Kool, OldGold, oj}
+Name: Kool, initial-domain: {1, 2, 3, 4, 5}, constraints: {C10, C54, C57, C59, C61, C5}, neighbors: {horse, Chesterfield, Parliment, LuckyStripe, OldGold, yellow}
+Name: OldGold, initial-domain: {1, 2, 3, 4, 5}, constraints: {C55, C58, C60, C61, C4}, neighbors: {Chesterfield, Parliment, LuckyStripe, Kool, snail}
+Constraints: 
+Name: C42, variables: {horse, snail}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C41, variables: {milk, water}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C44, variables: {horse, fox}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C43, variables: {horse, zebra}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C46, variables: {snail, zebra}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C45, variables: {horse, dog}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C48, variables: {snail, dog}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C47, variables: {snail, fox}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C49, variables: {zebra, fox}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C51, variables: {fox, dog}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C50, variables: {zebra, dog}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C53, variables: {Chesterfield, LuckyStripe}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C52, variables: {Chesterfield, Parliment}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C11, variables: {Norway, blue}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C55, variables: {Chesterfield, OldGold}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C10, variables: {Kool, horse}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C54, variables: {Chesterfield, Kool}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C13, variables: {Norway, Japan}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C57, variables: {Parliment, Kool}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C12, variables: {Norway, England}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C56, variables: {Parliment, LuckyStripe}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C15, variables: {Norway, Ukrane}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C59, variables: {LuckyStripe, Kool}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C14, variables: {Norway, Spain}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C58, variables: {Parliment, OldGold}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C17, variables: {England, Spain}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C16, variables: {England, Japan}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C19, variables: {Japan, Spain}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C18, variables: {England, Ukrane}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C60, variables: {LuckyStripe, OldGold}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C62, variables: {Norway}, definition: supports {[1]}
+Name: C61, variables: {Kool, OldGold}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C20, variables: {Japan, Ukrane}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C63, variables: {milk}, definition: supports {[3]}
+Name: C22, variables: {blue, red}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C21, variables: {Spain, Ukrane}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C24, variables: {blue, yellow}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C23, variables: {blue, green}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C26, variables: {red, green}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C25, variables: {blue, ivory}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C28, variables: {red, ivory}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C27, variables: {red, yellow}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C29, variables: {green, yellow}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C0, variables: {England, red}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C1, variables: {Spain, dog}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C2, variables: {coffee, green}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C3, variables: {Ukrane, tea}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C4, variables: {snail, OldGold}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C5, variables: {Kool, yellow}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C6, variables: {LuckyStripe, oj}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C7, variables: {Japan, Parliment}, definition: supports {[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]}
+Name: C8, variables: {green, ivory}, definition: supports {[2, 1], [3, 2], [4, 3], [5, 4]}
+Name: C9, variables: {Chesterfield, fox}, definition: supports {[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [4, 5], [5, 4]}
+Name: C31, variables: {yellow, ivory}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C30, variables: {green, ivory}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C33, variables: {coffee, oj}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C32, variables: {coffee, tea}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C35, variables: {coffee, water}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C34, variables: {coffee, milk}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C37, variables: {tea, milk}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C36, variables: {tea, oj}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C39, variables: {oj, milk}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C38, variables: {tea, water}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Name: C40, variables: {oj, water}, definition: supports {[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2, 3], [2, 4], [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 1], [4, 2], [4, 3], [4, 5], [5, 1], [5, 2], [5, 3], [5, 4]}
+Intance name: zebra-supports
+cc: 576
+cpu: 22.0
+fval: 8
+iSize: 167814181
+fSize: false
+fEffect: false

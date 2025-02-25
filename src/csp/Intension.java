@@ -1,13 +1,13 @@
 package csp;
 
-import abscon.instance.components.PFunction;
+import abscon.instance.components.PIntensionConstraint;
 import java.util.ArrayList;
 
 public class Intension extends Constraint{
 
-    protected PFunction relation;
+    protected PIntensionConstraint relation;
 
-    public Intension(String name, ArrayList<Variable> scope, PFunction relation) {
+    public Intension(String name, ArrayList<Variable> scope, PIntensionConstraint relation) {
         super(name, scope);
         this.relation = relation;
     }
@@ -26,28 +26,27 @@ public class Intension extends Constraint{
         }
         variables += "}";
 
-        return "Name: " + this.name + ", variables: " + variables + ", definition: " + this.relation.getName();
+        return "Name: " + this.name + ", variables: " + variables + ", definition: " + this.relation.getFunction().getFunctionalExpression();
     }
 
     public String getRelation() {
         return this.relation.getName();
     }
 
-    public void setRelation(PFunction relation) {
+    public void setRelation(PIntensionConstraint relation) {
         this.relation = relation;
     }
 
     @Override
     public boolean check(Variable v1, int a, Variable v2, int b) {
-        //TODO: implement;
-        return false;
+        long check = this.relation.computeCostOf(new int[]{a, b});
+        return check == 0;
     }
 
     @Override
     public boolean check(Variable var, int a) {
-        //TODO: implement
-        this.relation.getUniversalPostfixExpression();
-        return false;
+        long check = this.relation.computeCostOf(new int[]{a});
+        return check == 0;
     }
     
     

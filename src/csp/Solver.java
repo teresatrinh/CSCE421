@@ -33,14 +33,18 @@ public class Solver {
     }
 
     private boolean check(Variable v1, int a, Variable v2, int b) {
-        boolean check = false;
+        boolean check = true;
 
         for (Constraint con : problem.getConstraints()) {
             ArrayList<Variable> scope = con.getScope();
             if (scope.contains(v1) && scope.contains(v2)) {
                 this.cc++;
                 check = con.check(v1, a, v2, b);
-            }
+                //System.out.println("Constraint " + con.getName() + "is checked with values (" + a + ", " + b + ") and supported: " + check);
+                if (check) {
+                    return check;
+                }
+            } 
         }
 
         return check;
@@ -52,7 +56,7 @@ public class Solver {
         for (int value : getVariable(v2).getCurrentDomain().getValues()) {
             if (this.check(v1, a, v2, value)) {
                 support = true;
-                return support;
+                break;
             }
         }
 
@@ -65,8 +69,9 @@ public class Solver {
         Variable problemV1 = this.getVariable(v1);
 
         for (int value : problemV1.getCurrentDomain().getValues()) {
-            if (!supported(v1, value, v2)) {
+            if (!this.supported(v1, value, v2)) {
                 problemV1.removeValue(value);
+                //System.out.println("Value " + value + " is removed from " + problemV1.getName());
                 revise = true;
             }
         }
@@ -133,17 +138,17 @@ public class Solver {
         ArrayList<Variable[]> queue = this.createQueue();
 
         boolean change = true;
-        while (change) {
-            for (Variable[] tuple : queue) {
-                boolean updated = revise(tuple[0], tuple[1]);
-                if (tuple[0].isEmpty()) {
-                    System.out.println("Domain wipe-out of variable "+ tuple[0].getName() + ". No solution to CSP.");
-                    this.ac = false;
-                    change = false;
-                    break;
-                } else {
-                    change = updated || change;
-                }
+        while (change && !queue.isEmpty()) {
+            Variable[] tuple = queue.remove(0);
+            boolean updated = this.revise(tuple[0], tuple[1]);
+            //System.out.println(tuple[0].getName() + tuple[1].getName());
+            if (tuple[0].isEmpty()) {
+                System.out.println("Domain wipe-out of variable "+ tuple[0].getName() + ". No solution to CSP.");
+                this.ac = false;
+                change = false;
+                break;
+            } else {
+                change = updated || change;
             }
         }
         long end = System.currentTimeMillis();

@@ -68,23 +68,6 @@ public class Constraint {
         return false;
     }
 
-    public boolean supported(Variable v1, int a, Variable v2) {
-        boolean support = false;
-
-        if (!this.inScope(v1) || !this.inScope(v2)) {
-            return support;
-        }
-
-        for (int x : v2.getCurrentDomain().getValues()) {
-            if (check(v1, a, v2, x)) {
-                support = true; 
-                return support;
-            }
-        }
-
-        return support;
-    }
-
     public boolean inScope(Variable var) {
         return this.scope.contains(var);
     }

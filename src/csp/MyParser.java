@@ -49,7 +49,7 @@ public class MyParser {
             Constraint newCon = new Constraint(con, variables);
             if (con instanceof PIntensionConstraint inten) {
                 Intension finalCon = new Intension (newCon);
-                finalCon.setRelation(inten.getFunction());
+                finalCon.setRelation(inten);
                 constraints.add(finalCon);
             } else if (con instanceof PExtensionConstraint exten) {
                 Extension finalCon = new Extension (newCon);
