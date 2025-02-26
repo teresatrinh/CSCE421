@@ -130,12 +130,19 @@ public class Solver {
         
     }
 
+    private void printCSV() {
+        this.calculateStats();
+        System.out.println(this.problem.getName() + "," + this.cc + "," + this.cpuTime + "," + this.fval + "," + this.iSize + "," + this.fSize + "," + this.fEffect);
+    }
+
     public void AC1() {
         
         long start = System.currentTimeMillis();
 
         this.NC();
         ArrayList<Variable[]> queue = this.createQueue();
+
+        this.ac = true;
 
         boolean change = true;
         while (change && !queue.isEmpty()) {
@@ -154,7 +161,9 @@ public class Solver {
         long end = System.currentTimeMillis();
         this.cpuTime = end - start;
 
-        this.printStats();
+        //this.printStats();
+        this.printCSV();
+        
     }
 
     public void AC3() {
@@ -164,11 +173,14 @@ public class Solver {
         this.NC();
         ArrayList<Variable[]> queue = this.createQueue();
 
+        this.ac = true;
+
         while (!queue.isEmpty()) {
             Variable[] tuple = queue.remove(0);
             if (revise(tuple[0], tuple[1])) {
                 if (tuple[0].isEmpty()) {
                     System.out.println("Domain wipe-out of variable "+ tuple[0].getName() + ". No solution to CSP.");
+                    this.ac = false;
                     break;
                 } else {
                     for (Variable var : this.problem.getVariables()) {
@@ -186,7 +198,8 @@ public class Solver {
         long end = System.currentTimeMillis();
         this.cpuTime = end - start;
 
-        this.printStats();
+        //this.printStats();
+        this.printCSV();
 
     }
 

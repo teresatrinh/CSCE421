@@ -72,7 +72,7 @@ public class MyParser {
             }
         }
 
-        this.print();
+        //this.print();
 
     }
 
