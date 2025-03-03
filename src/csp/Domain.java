@@ -1,5 +1,7 @@
 package csp;
 
+import java.util.Arrays;
+
 public class Domain {
     
     protected String name;
@@ -48,5 +50,9 @@ public class Domain {
         } else {
             return false;
         }
+    }
+
+    public void sort() {
+        Arrays.sort(this.values);
     }
 }

@@ -5,6 +5,7 @@ import abscon.instance.components.PExtensionConstraint;
 import abscon.instance.components.PIntensionConstraint;
 import abscon.instance.tools.InstanceParser;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MyParser {
 
@@ -81,6 +82,7 @@ public class MyParser {
     }
 
     public ArrayList<Variable> getVariables() {
+        Collections.sort(this.variables);
         return this.variables;
     }
 

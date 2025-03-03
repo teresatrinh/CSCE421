@@ -3,7 +3,7 @@ package csp;
 import abscon.instance.components.PVariable;
 import java.util.ArrayList;
 
-public class Variable {
+public class Variable implements Comparable<Variable> {
     //Keep reference to original variable, just in case it is needed later
     protected PVariable varRef;
 
@@ -25,7 +25,9 @@ public class Variable {
         currDomain = new Domain(initDomain.getName(), initDomain.getValues().clone());
     }
 
-    public Variable() {
+    @Override
+    public int compareTo(Variable var) {
+        return this.name.compareTo(var.getName());
     }
 
     public Variable(String name) {
@@ -95,6 +97,5 @@ public class Variable {
     public void resetDomain() {
         this.currDomain = new Domain(initDomain.getName(), initDomain.getValues().clone());
     }
- 
     
 }
