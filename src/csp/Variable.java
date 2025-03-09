@@ -25,6 +25,10 @@ public class Variable implements Comparable<Variable> {
         currDomain = new Domain(initDomain.getName(), initDomain.getValues().clone());
     }
 
+    public Variable () {
+        
+    }
+
     @Override
     public int compareTo(Variable var) {
         return this.name.compareTo(var.getName());

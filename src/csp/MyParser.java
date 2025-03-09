@@ -5,7 +5,6 @@ import abscon.instance.components.PExtensionConstraint;
 import abscon.instance.components.PIntensionConstraint;
 import abscon.instance.tools.InstanceParser;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MyParser {
 
@@ -82,7 +81,6 @@ public class MyParser {
     }
 
     public ArrayList<Variable> getVariables() {
-        Collections.sort(this.variables);
         return this.variables;
     }
 
@@ -101,24 +99,23 @@ public class MyParser {
         MyParser parser = null;
         Solver solve = null;
 
-        for (int i = 0; i < args.length; i += 2) {
-            if (args[i].equals("-f")) {
-                parser = new MyParser(args[i + 1]);
-                solve = new Solver(parser);
-            } else if (args[i].equals("-a")) {
-                if (args[i+1].equals("ac1")) {
-                    solve.AC1();
-                } else if (args[i+1].equals("ac3")) {
-                    solve.AC3();
-                }
-            }
-        }
+        //for (int i = 0; i < args.length; i += 2) {
+        //    if (args[i].equals("-f")) {
+        //        parser = new MyParser(args[i + 1]);
+        //        solve = new Solver(parser);
+        //    } else if (args[i].equals("-a")) {
+        //        if (args[i+1].equals("ac1")) {
+        //            solve.AC1();
+        //        } else if (args[i+1].equals("ac3")) {
+        //            solve.AC3();
+        //        }
+        //    }
+        //}
 
-        //MyParser parser = new MyParser("input/chain4-conflicts.xml");
+        parser = new MyParser("input/3queens-conflicts.xml");
 
-        //Solver solve = new Solver(parser);
-        //solve.AC1();
+        BackTracker bt = new BackTracker(parser);
+        bt.backtrack();
     }
-
 
 }

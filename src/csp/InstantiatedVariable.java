@@ -25,6 +25,5 @@ public class InstantiatedVariable {
     public int getValue() {
         return this.value;
     }
-
-
+    
 }

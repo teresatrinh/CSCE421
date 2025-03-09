@@ -41,7 +41,26 @@ public class Domain {
             }
         }
         this.values = newValues;
+    }
 
+    public void removeIndex(int a) {
+        int[] newValues = new int[this.values.length - 1];
+        for (int i = 0, k = 0; i < this.values.length; i++) {
+            if (i != a) {
+                newValues[k] = this.values[i];
+                k++;
+            }
+        }
+    }
+
+    public int indexOf(int j) {
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] == j) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public boolean isEmpty() {
@@ -54,5 +73,13 @@ public class Domain {
 
     public void sort() {
         Arrays.sort(this.values);
+    }
+
+    public int getValue(int i) {
+        return this.values[i];
+    }
+
+    public void setValues(int[] values) {
+        this.values = values;
     }
 }
