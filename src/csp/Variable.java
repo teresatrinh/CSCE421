@@ -2,8 +2,18 @@ package csp;
 
 import abscon.instance.components.PVariable;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Variable implements Comparable<Variable> {
+
+    public static final Comparator<Variable> ByName = Comparator.comparing(Variable::getName);
+
+    public static final Comparator<Variable> ByDomain = Comparator.comparing(Variable::initialDomainLength);
+
+    public static final Comparator<Variable> ByNeighbor = Comparator.comparing(Variable::neighborLength);
+
+    public static final Comparator<Variable> ByDegree = Comparator.comparing(Variable::degree);
+
     //Keep reference to original variable, just in case it is needed later
     protected PVariable varRef;
 
@@ -26,7 +36,7 @@ public class Variable implements Comparable<Variable> {
     }
 
     public Variable () {
-        
+
     }
 
     @Override
@@ -52,6 +62,21 @@ public class Variable implements Comparable<Variable> {
 
     public Domain getCurrentDomain() {
         return currDomain;
+    }
+
+    public int initialDomainLength() {
+        return initDomain.length();
+    }
+
+    public int neighborLength() {
+        return this.neighbors.size();
+    }
+
+    public int degree() {
+        if (this.neighborLength() == 0) {
+            return 0;
+        }
+        return this.initialDomainLength()/this.neighborLength();
     }
 
     @Override
@@ -102,4 +127,29 @@ public class Variable implements Comparable<Variable> {
         this.currDomain = new Domain(initDomain.getName(), initDomain.getValues().clone());
     }
     
+}
+
+// sorting Variables by name
+class SortByName implements Comparator<Variable> {
+    @Override
+    public int compare(Variable a, Variable b) {
+        return a.getName().compareTo(b.getName());
+    }
+}
+
+// sorting Variables by domain length
+class SortByDomain implements Comparator<Variable> {
+    @Override
+    public int compare(Variable a, Variable b) {
+        int x = a.getInitialDomain().getValues().length;
+        int y = b.getInitialDomain().getValues().length;
+        
+        if (x == y) {
+            return 0;
+        } else if (x < y){
+            return -1;
+        } else {
+            return 1;
+        }
+    }
 }

@@ -21,12 +21,31 @@ public class BackTracker {
 
     public BackTracker(MyParser problem) {
         this.problem = problem;
+        this.setProblem(problem);  
+    }
+
+    public BackTracker(){}
+
+    private Variable getVariable(Variable var) {
+        int i = this.problem.getVariables().indexOf(var);
+        return this.problem.getVariables().get(i);
+    }
+
+    public void setVariableHeuristic(String s) {
+        this.varOrderingHeuristic = s;
+
+        switch (varOrderingHeuristic) {
+            case "DD" -> Collections.sort(currentPath, InstantiatedVariable.ByDegree);
+            case "LD" -> Collections.sort(currentPath, InstantiatedVariable.ByDomain);
+            case "DEG" -> Collections.sort(currentPath, InstantiatedVariable.ByNeighbor);
+            default -> Collections.sort(currentPath, InstantiatedVariable.ByName);
+        }
+    }
+
+    public void setProblem(MyParser problem) {
+        this.problem = problem;
 
         ArrayList<Variable> variables = problem.getVariables();
-
-        if (varOrderingHeuristic.equals("LX")) {
-            Collections.sort(variables);
-        }
 
         for (Variable v : variables) {
             // creating deep copies of each domain so that initial Domain is not changed when current domain is
@@ -42,11 +61,6 @@ public class BackTracker {
             InstantiatedVariable var = new InstantiatedVariable(v);
             this.currentPath.add(var);
         }
-    }
-
-    private Variable getVariable(Variable var) {
-        int i = this.problem.getVariables().indexOf(var);
-        return this.problem.getVariables().get(i);
     }
 
     //Node consistency implementation 
@@ -88,12 +102,57 @@ public class BackTracker {
         return check;
     }
 
-    private void printCurrentPath() {
+    // prints currentPath/solution as indicated in homework 3 documentation
+    private void printSolution() {
+
+        String solution = "First Solution: ";
 
         for (InstantiatedVariable v : currentPath) {
-            System.out.println(v.getVar().getName() + ": " + v.getValue());
+            solution += v.getValue();
         }
+
+        System.out.println(solution);
     }
+
+    // print statistics of finding the first solution
+    private void printStats() {
+        System.out.println("Intance name: " + this.problem.getName());
+        System.out.println("variable-order-heuristic: " + this.varOrderingHeuristic);
+        System.out.println("var-static-dynamic: " + this.varStaticDynamic);
+        System.out.println("value-order-heuristic: " + this.valueOrderingHeuristic);
+        System.out.println("val-static-dynamic: " + this.valueStaticDynamic);
+        System.out.println("cc: " + this.cc);
+        System.out.println("nv: " + this.nv);
+        System.out.println("bt: " + this.bt);
+        System.out.println("cpu: " + this.cpuTime);
+        
+    }
+
+    // print statistics for finding all solutions
+    private void printFinalStats() {
+        System.out.println("all-sol cc: " + this.cc);
+        System.out.println("all-sol nv: " + this.nv);
+        System.out.println("all-sol bt: " + this.bt);
+        System.out.println("all-sol cpu: " + this.cpuTime);
+    }
+
+    // print statistics for EXCEL file for one solution
+    private String printCSV1() {
+        String s = this.problem.getName() + "," + this.varOrderingHeuristic + "," + this.cc + "," + this.nv + "," + this.bt + "," + this.cpuTime;
+        return s;
+    }
+
+    // print statistic for EXCEL file for all solutions and ordering of variables
+    private void printCSV2(String s, int solution) {
+        s += "," + this.cc + "," + this.nv + "," + this.bt + "," + this.cpuTime + "," + solution + ",";
+
+        for (InstantiatedVariable v : currentPath) {
+            s += v.getVar().getName() + ",";
+        }
+
+        System.out.println(s);
+    }
+
  
     //backtrack as described in Prosser's paper with node consistency check
     public void backtrack() {
@@ -105,6 +164,7 @@ public class BackTracker {
         String status = null; 
 
         int i = 0;
+        int solution = 0;
 
         while (status == null) {
             if (consistent) {
@@ -114,24 +174,68 @@ public class BackTracker {
             }
             if (i == this.problem.getVariables().size()) {
                 status = "solution";
-                printCurrentPath();
+                solution++;
             } else if (i == -1) {
                 status = "impossible";
-                System.out.println("No solution to CSP.");
             }
         }
 
         long end = System.currentTimeMillis();
         this.cpuTime = end - start;
+
+        String s = printCSV1();
+        
+        if (status.equals("solution")) {
+            //printSolution();
+            currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
+            i--;
+            while (status.equals("solution")) {
+                end = System.currentTimeMillis();
+                if ((end - start) > 3600000) {
+                    status = "timeout";
+                    break;
+                }
+                if (consistent) {
+                    i = label(i);
+                } else {
+                    i = unlabel(i);
+                }
+                if (i == this.problem.getVariables().size()) {
+                    solution++;
+                    currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
+                    i--;
+                } else if (i == -1) {
+                    status = "impossible";
+                }
+            }
+    
+            end = System.currentTimeMillis();
+            this.cpuTime = end - start;
+    
+            //printFinalStats();
+            //System.out.println("Number of solutions: " + solution);
+        } else {
+            //System.out.println("First solution: No solutions");
+        }
+
+        printCSV2(s, solution);
     }
 
     //BT-label as described in Prosser's paper
     private int label(int i) {
         consistent = false;
 
+        long start = System.currentTimeMillis();
+
         for (int x : currentDomain.get(i).getValues()) {
             currentPath.get(i).setValue(x);
+            this.nv++;
             while (!consistent) {
+                long end = System.currentTimeMillis();
+                if (end-start > 300000) {
+                    currentDomain.get(i).removeValue(x);
+                    break;
+                }
                 consistent = true;
                 for (int h = 0; h < i; h++) {
                     if (consistent) {
@@ -157,6 +261,7 @@ public class BackTracker {
     private int unlabel(int i) {
         int h = i-1;
 
+        this.bt++;
         currentDomain.get(i).setValues(initialDomain.get(i).getValues().clone());
         if (h >= 0) {
             currentDomain.get(h).removeValue(currentPath.get(h).getValue());

@@ -97,25 +97,19 @@ public class MyParser {
     public static void main(String[] args) {
 
         MyParser parser = null;
-        Solver solve = null;
+        BackTracker bt = new BackTracker();
 
-        //for (int i = 0; i < args.length; i += 2) {
-        //    if (args[i].equals("-f")) {
-        //        parser = new MyParser(args[i + 1]);
-        //        solve = new Solver(parser);
-        //    } else if (args[i].equals("-a")) {
-        //        if (args[i+1].equals("ac1")) {
-        //            solve.AC1();
-        //        } else if (args[i+1].equals("ac3")) {
-        //            solve.AC3();
-        //        }
-        //    }
-        //}
+        for (int i = 0; i < args.length; i += 2) {
+            if (args[i].equals("-f")) {
+                parser = new MyParser(args[i + 1]);
+                bt = new BackTracker(parser);
+            } else if (args[i].equals("-u")) {
+                bt.setVariableHeuristic(args[i+1]);
+            }
+        }
 
-        parser = new MyParser("input/3queens-conflicts.xml");
-
-        BackTracker bt = new BackTracker(parser);
         bt.backtrack();
+
     }
 
 }

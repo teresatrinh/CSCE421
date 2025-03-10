@@ -82,4 +82,8 @@ public class Domain {
     public void setValues(int[] values) {
         this.values = values;
     }
+
+    public int length() {
+        return this.values.length;
+    }
 }

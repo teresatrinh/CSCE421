@@ -1,6 +1,16 @@
 package csp;
 
-public class InstantiatedVariable {
+import java.util.Comparator;
+
+public class InstantiatedVariable implements Comparator<InstantiatedVariable>{
+
+    public static final Comparator<InstantiatedVariable> ByName = Comparator.comparing(InstantiatedVariable::getVarName);
+
+    public static final Comparator<InstantiatedVariable> ByDomain = Comparator.comparing(InstantiatedVariable::getDomainLength);
+
+    public static final Comparator<InstantiatedVariable> ByNeighbor = Comparator.comparing(InstantiatedVariable::getNeighborLength);
+
+    public static final Comparator<InstantiatedVariable> ByDegree = Comparator.comparing(InstantiatedVariable::getDegree);
 
     public Variable variable;
     public int value;
@@ -25,5 +35,25 @@ public class InstantiatedVariable {
     public int getValue() {
         return this.value;
     }
+
+    public String getVarName() {
+        return this.variable.getName();
+    }
+
+    public int getDomainLength() {
+        return this.variable.initialDomainLength();
+    }
+
+    public int getNeighborLength() {
+        return this.variable.neighborLength();
+    }
     
+    public int getDegree() {
+        return this.variable.degree();
+    }
+
+    @Override
+    public int compare(InstantiatedVariable o1, InstantiatedVariable o2) {
+        return o1.getVarName().compareTo(o2.getVarName());
+    }
 }
