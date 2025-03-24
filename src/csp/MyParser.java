@@ -97,18 +97,18 @@ public class MyParser {
     public static void main(String[] args) {
 
         MyParser parser = null;
-        BackTracker bt = new BackTracker();
+        Solver solver = new Solver();
 
         for (int i = 0; i < args.length; i += 2) {
             if (args[i].equals("-f")) {
                 parser = new MyParser(args[i + 1]);
-                bt = new BackTracker(parser);
+                solver = new Solver(parser);
             } else if (args[i].equals("-u")) {
-                bt.setVariableHeuristic(args[i+1]);
+                solver.setVariableHeuristic(args[i+1]);
             }
         }
 
-        bt.backtrack();
+        solver.backtrack();
 
     }
 
