@@ -21,6 +21,7 @@ public class Solver {
     private ArrayList<Domain> initialDomain = new ArrayList<>();
     private ArrayList<HashSet<Integer>> conflictSet = new ArrayList<>();
     private boolean consistent = true;
+    private String status = null;
     
         public Solver(MyParser problem) {
             this.problem = problem;
@@ -60,7 +61,9 @@ public class Solver {
                 }
                 this.currentDomain.add(domain1);
                 this.initialDomain.add(domain2);
-                this.conflictSet.add(new HashSet<>());
+                HashSet<Integer> set = new HashSet<>();
+                set.add(0);
+                this.conflictSet.add(set);
 
             InstantiatedVariable var = new InstantiatedVariable(v);
             this.currentPath.add(var);
@@ -109,18 +112,22 @@ public class Solver {
     // prints currentPath/solution as indicated in homework 3 documentation
     private void printSolution() {
 
-        String solution = "First Solution: ";
+        String solution = "First Solution: [";
 
         for (InstantiatedVariable v : currentPath) {
-            solution += v.getValue();
+            solution += v.getValue() + ", ";
         }
+
+        solution = solution.substring(0, solution.length()-2);
+        solution += "]";
 
         System.out.println(solution);
     }
 
     // print statistics of finding the first solution
-    private void printStats() {
+    private void printStats(String search) {
         System.out.println("Intance name: " + this.problem.getName());
+        System.out.println("Search: " + search);
         System.out.println("variable-order-heuristic: " + this.varOrderingHeuristic);
         System.out.println("var-static-dynamic: " + this.varStaticDynamic);
         System.out.println("value-order-heuristic: " + this.valueOrderingHeuristic);
@@ -165,7 +172,6 @@ public class Solver {
         this.NC();
 
         consistent = true;
-        String status = null; 
 
         int i = 0;
         int solution = 0;
@@ -188,10 +194,10 @@ public class Solver {
         this.cpuTime = end - start;
 
         //String s = printCSV1();
-        this.printStats();
+        this.printStats("BT");
         
         if (status.equals("solution")) {
-            //printSolution();
+            printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
             while (status.equals("solution")) {
@@ -217,10 +223,10 @@ public class Solver {
             end = System.currentTimeMillis();
             this.cpuTime = end - start;
     
-            //printFinalStats();
-            //System.out.println("Number of solutions: " + solution);
+            printFinalStats();
+            System.out.println("Number of solutions: " + solution);
         } else {
-            //System.out.println("First solution: No solutions");
+            System.out.println("First solution: No solutions");
         }
 
         //printCSV2(s, solution);
@@ -340,7 +346,6 @@ public class Solver {
         this.NC();
 
         consistent = true;
-        String status = null; 
 
         int i = 0;
         int solution = 0;
@@ -363,10 +368,10 @@ public class Solver {
         this.cpuTime = end - start;
 
         //String s = printCSV1();
-        this.printStats();
+        this.printStats("CBJ");
         
         if (status.equals("solution")) {
-            //printSolution();
+            printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
             while (status.equals("solution")) {
@@ -392,10 +397,10 @@ public class Solver {
             end = System.currentTimeMillis();
             this.cpuTime = end - start;
     
-            //printFinalStats();
-            //System.out.println("Number of solutions: " + solution);
+            printFinalStats();
+            System.out.println("Number of solutions: " + solution);
         } else {
-            //System.out.println("First solution: No solutions");
+            System.out.println("First solution: No solutions");
         }
 
         //printCSV2(s, solution);
@@ -435,21 +440,31 @@ public class Solver {
 
     // Implements CBJ unlabel as in Prosser's paper 
     private int cbjUnlabel(int i) {
+        if (conflictSet.get(i).isEmpty()) {
+            status = "impossible";
+            return -1;
+        }
         int h = max(conflictSet.get(i));
         conflictSet.get(i).remove(h);
         conflictSet.get(h).addAll(conflictSet.get(i));
 
+        this.bt++;
+
         for (int j = h+1; j < i + 1; j++) {
             conflictSet.get(j).clear();
+            conflictSet.get(j).add(0);
             currentDomain.get(j).setValues(initialDomain.get(j).getValues().clone());
         }
 
         if (h >= 0) {
-            currentDomain.get(h).removeValue(currentPath.get(h).getValue());
+            if (!currentDomain.get(h).isEmpty()) {
+                currentDomain.get(h).removeValue(currentPath.get(h).getValue());
+            }
             consistent = !currentDomain.get(h).isEmpty();
         } else {
             consistent = false;
         }
+
         return h;
     }
 

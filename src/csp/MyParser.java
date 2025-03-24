@@ -98,6 +98,7 @@ public class MyParser {
 
         MyParser parser = null;
         Solver solver = new Solver();
+        String search = null;
 
         for (int i = 0; i < args.length; i += 2) {
             if (args[i].equals("-f")) {
@@ -105,10 +106,19 @@ public class MyParser {
                 solver = new Solver(parser);
             } else if (args[i].equals("-u")) {
                 solver.setVariableHeuristic(args[i+1]);
+            } else if (args[i].equals("-s")) {
+                search = args[i+1];
             }
         }
 
-        solver.backtrack();
+        switch (search) {
+            case "BT":
+                solver.backtrack();
+                break;
+            case "CBJ":
+                solver.cbj();
+                break;
+        }
 
     }
 
