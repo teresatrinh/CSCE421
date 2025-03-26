@@ -1,0 +1,87 @@
+Variables (Domain):
+    Recreation Area ([1, 2, 3, 4, 5, 6, 7, 8])
+    Apartment Complex ([1, 2, 3, 4, 5, 6, 7, 8])
+    Houses ([1, 2, 3, 4, 5, 6, 7, 8])
+    Cemetery ([1, 2, 3, 4, 5, 6, 7, 8])
+    Dumpsite ([1, 2, 3, 4, 5, 6, 7, 8])
+
+Relations:
+    Near-Lake:
+        Type: Support
+        Tuples: [(2), (3), (4)]
+        Arity: 1
+    No-Slope: 
+        Type: Conflict
+        Tuples: [(3), (4), (7), (8)]
+        Arity: 1
+    Slope:
+        Type: Support
+        Tuples: [(3), (4), (7), (8)]
+        Arity: 1
+    No-Highway:
+        Type: Conflict
+        Tuples: [(1), (2)]
+        Arity: 1
+    No-Poor-Soil:
+        Type: Conflict
+        Tuples: [(3), (4)]
+        Arity: 1
+    No-Lake:
+        Type: Conflict
+        Tuples: [(2), (3), (4)]
+        Arity: 1
+    No-Visibility: 
+        Type: Support
+        Tuples: [(1, 3), (1, 4), (1, 7), (1, 8), (2, 4), (2, 8), (3, 1), (3, 5), (4, 1), (4, 2), (4, 5), (4, 6), (5, 3), (5, 4), (5, 7), (5, 8), (6, 4), (6, 8), (7, 1), (7, 5), (8, 1), (8, 2), (8, 5), (8, 6)]
+        Arity: 2
+
+
+Constraints:
+    Recreation-Lake:
+        Scope: Recreation Area
+        Relation: Near-Lake
+    Recration-Slope:
+        Scope: Recreation Area
+        Relation: Slope
+    Apartment-No-Slope:
+        Scope: Apartment Complex
+        Relation: No-Slope
+    House-No-Slope:
+        Scope: Houses
+        Relation: No-Slope
+    Cemetery-No-Slope:
+        Scope: Cemetery
+        Relation: No-Slope
+    Dumpsite-No-Slope:
+        Scope: Dumpsite
+        Relation: No-Slope
+    Recreation-No-Highway:
+        Scope: Recreation Area
+        Relation: No-Highway
+    Apartment-No-Highway:
+        Scope: Apartment Complex
+        Relation: No-Highway
+    House-No-Highway:
+        Scope: Houses
+        Relation: No-Highway
+    Apartment-No-Poor-Soil:
+        Scope: Apartment Complex
+        Relation: No-Poor-Soil
+    House-No-Poor-Soil:
+        Scope: Houses
+        Relation: No-Poor-Soil
+    Dumpsite-No-Lake:
+        Scope: Dumpsite
+        Relation: No-Lake
+    House-Dumpsite:
+        Scope: Dumpsite, Houses
+        Relation: No-Visibility
+    Apartment-Dumpsite:
+        Scope: Dumpsite, Apartment Complex
+        Relation: No-Visibility
+    
+Assumptions: 
+    Visibility means that the lots are not directly adjacdent or diagonal to each other including across a street or intersection.  
+    
+Query: 
+    Does there exist a solution where all the constraints are satisfied and the variables are assigned values within its domain? 
