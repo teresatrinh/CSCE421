@@ -128,28 +128,3 @@ public class Variable implements Comparable<Variable> {
     }
     
 }
-
-// sorting Variables by name
-class SortByName implements Comparator<Variable> {
-    @Override
-    public int compare(Variable a, Variable b) {
-        return a.getName().compareTo(b.getName());
-    }
-}
-
-// sorting Variables by domain length
-class SortByDomain implements Comparator<Variable> {
-    @Override
-    public int compare(Variable a, Variable b) {
-        int x = a.getInitialDomain().getValues().length;
-        int y = b.getInitialDomain().getValues().length;
-        
-        if (x == y) {
-            return 0;
-        } else if (x < y){
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-}

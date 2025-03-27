@@ -193,11 +193,11 @@ public class Solver {
         long end = System.currentTimeMillis();
         this.cpuTime = end - start;
 
-        //String s = printCSV1();
-        this.printStats("BT");
+        String s = printCSV1();
+        //this.printStats("BT");
         
         if (status.equals("solution")) {
-            printSolution();
+            //printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
             while (status.equals("solution")) {
@@ -223,13 +223,13 @@ public class Solver {
             end = System.currentTimeMillis();
             this.cpuTime = end - start;
     
-            printFinalStats();
-            System.out.println("Number of solutions: " + solution);
+            //printFinalStats();
+            //System.out.println("Number of solutions: " + solution);
         } else {
-            System.out.println("First solution: No solutions");
+            //System.out.println("First solution: No solutions");
         }
 
-        //printCSV2(s, solution);
+        printCSV2(s, solution);
     }
 
     //BT-label as described in Prosser's paper
@@ -367,11 +367,11 @@ public class Solver {
         long end = System.currentTimeMillis();
         this.cpuTime = end - start;
 
-        //String s = printCSV1();
-        this.printStats("CBJ");
+        String s = printCSV1();
+        //this.printStats("CBJ");
         
         if (status.equals("solution")) {
-            printSolution();
+            //printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
             for (int j = 0; j < i; j++) {
@@ -400,13 +400,13 @@ public class Solver {
             end = System.currentTimeMillis();
             this.cpuTime = end - start;
     
-            printFinalStats();
-            System.out.println("Number of solutions: " + solution);
+            //printFinalStats();
+            //System.out.println("Number of solutions: " + solution);
         } else {
-            System.out.println("First solution: No solutions");
+            //System.out.println("First solution: No solutions");
         }
 
-        //printCSV2(s, solution);
+        printCSV2(s, solution);
     }
 
     // Implements CBJ label as in Prosser's paper

@@ -112,12 +112,8 @@ public class MyParser {
         }
 
         switch (search) {
-            case "BT":
-                solver.backtrack();
-                break;
-            case "CBJ":
-                solver.cbj();
-                break;
+            case "BT" -> solver.backtrack();
+            case "CBJ" -> solver.cbj();
         }
 
     }
