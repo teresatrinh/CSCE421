@@ -135,7 +135,7 @@ public class Solver {
         System.out.println("cc: " + this.cc);
         System.out.println("nv: " + this.nv);
         System.out.println("bt: " + this.bt);
-        System.out.println("cpu: " + this.cpuTime);
+        System.out.println("cpu (ms): " + this.cpuTime);
         
     }
 
@@ -144,7 +144,7 @@ public class Solver {
         System.out.println("all-sol cc: " + this.cc);
         System.out.println("all-sol nv: " + this.nv);
         System.out.println("all-sol bt: " + this.bt);
-        System.out.println("all-sol cpu: " + this.cpuTime);
+        System.out.println("all-sol cpu (ms): " + this.cpuTime);
     }
 
     // print statistics for EXCEL file for one solution
