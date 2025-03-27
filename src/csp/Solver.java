@@ -374,6 +374,9 @@ public class Solver {
             printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
+            for (int j = 0; j < i; j++) {
+                conflictSet.get(i).add(j);
+            }
             while (status.equals("solution")) {
                 end = System.currentTimeMillis();
                 if ((end - start) > 3600000) {
