@@ -3,7 +3,10 @@ package csp;
 import java.util.ArrayList;
 import java.util.Collections;
 import static java.util.Collections.max;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Stack;
 
 public class Solver {
 
@@ -22,6 +25,9 @@ public class Solver {
     private ArrayList<HashSet<Integer>> conflictSet = new ArrayList<>();
     private boolean consistent = true;
     private String status = null;
+    private ArrayList<Stack<Integer>> futureFC = new ArrayList();
+    private ArrayList<Stack<Integer>> pastFC = new ArrayList();
+    private ArrayList<HashMap<Integer, ArrayList<Integer>>> reductions = new ArrayList();
     
         public Solver(MyParser problem) {
             this.problem = problem;
@@ -62,8 +68,14 @@ public class Solver {
                 this.currentDomain.add(domain1);
                 this.initialDomain.add(domain2);
                 HashSet<Integer> set = new HashSet<>();
+                HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
+                Stack<Integer> stack = new Stack();
+                Stack<Integer> stack2 = new Stack();
                 set.add(0);
                 this.conflictSet.add(set);
+                this.reductions.add(map);
+                futureFC.add(stack);
+                pastFC.add(stack2);
 
             InstantiatedVariable var = new InstantiatedVariable(v);
             this.currentPath.add(var);
@@ -469,6 +481,157 @@ public class Solver {
         }
 
         return h;
+    }
+
+    //implement check forward from Prosser's paper
+    private Boolean checkForward(int i, int j) {
+
+        ArrayList<Integer> reduction = new ArrayList<>();
+
+        for (int x : currentDomain.get(j).getValues()) {
+            if (!check(i, j)) {
+                reduction.add(currentPath.get(j).getValue());
+            }
+        }
+        if (!reduction.isEmpty()) {
+            currentDomain.get(j).removeAll(reduction);
+            if (reductions.get(j).containsKey(i)) {
+                reductions.get(j).get(i).addAll(reduction);
+            } else {
+                reductions.get(j).put(i, reduction);
+            }
+            futureFC.get(i).push(j);
+            pastFC.get(j).push(i);
+        }
+
+        return !currentDomain.get(j).isEmpty();
+    }
+
+    // undo-reductions as detailed in Prosser's paper
+    private void undoReduction(int i) {
+        for (int j : futureFC.get(i)) {
+            ArrayList<Integer> reduction = reductions.get(j).remove(i);
+            currentDomain.get(j).addAll(reduction);
+            pastFC.get(j).pop();
+        }
+        futureFC.get(i).clear();
+    } 
+
+    // updated-current-domain as detailed in Prosser's paper
+    private void updatedCurrentDomain(int i) {
+        currentDomain.get(i).setValues(initialDomain.get(i).getValues());
+        for (Map.Entry<Integer, ArrayList<Integer>> entry : reductions.get(i).entrySet()) {
+            ArrayList<Integer> list = entry.getValue();
+            currentDomain.get(i).removeAll(list);
+        }
+    }
+
+    // fc-label as detailed in Prosser's paper
+    private int fcLabel(int i) {
+        this.consistent = false;
+        int problemSize = problem.getVariables().size();
+        for (int x : currentDomain.get(i).getValues()) {
+            currentPath.get(i).setValue(x);
+            if (!this.consistent) {
+                this.consistent = true;
+                for (int j = i + 1; j < problemSize; j++) {
+                    if (consistent) {
+                        consistent = checkForward(i, j);
+                    } else {
+                        currentDomain.get(i).removeValue(currentPath.get(i).getValue());
+                        undoReduction(i);
+                        break;
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+        if (consistent) {
+            return i +1;
+        } else {
+            return i;
+        }
+    }
+
+    // fc-unlabel as detailed in Prosser's paper
+    private int fcUnlabel(int i) {
+        if (i == 0) {
+            status = "impossible";
+            return -1;
+        }
+        int h = i-1;
+        undoReduction(h);
+        updatedCurrentDomain(i);
+        currentDomain.get(h).removeValue(currentPath.get(h).getValue());
+        consistent = !currentDomain.get(h).isEmpty();
+        return h;
+    }
+
+    public void fc() {
+        long start = System.currentTimeMillis();
+
+        this.NC();
+
+        this.consistent = true;
+
+        int i = 0;
+        int solution = 0;
+
+        while (status == null) {
+            if (consistent) {
+                i = fcLabel(i);
+            } else {
+                i = fcUnlabel(i);
+            }
+            if (i == this.problem.getVariables().size()) {
+                status = "solution";
+                solution++;
+            } else if (i == -1) {
+                status = "impossible";
+            }
+        }
+
+        long end = System.currentTimeMillis();
+        this.cpuTime = end - start;
+
+        String s = printCSV1();
+        //this.printStats("BT");
+        
+        if (status.equals("solution")) {
+            //printSolution();
+            currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
+            i--;
+            while (status.equals("solution") & i >= 0) {
+                end = System.currentTimeMillis();
+                if ((end - start) > 3600000) {
+                    status = "timeout";
+                    break;
+                }
+                if (consistent) {
+                    i = fcLabel(i);
+                } else {
+                    i = fcUnlabel(i);
+                }
+                if (i == this.problem.getVariables().size()) {
+                    solution++;
+                    currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
+                    i--;
+                } else if (i == -1) {
+                    status = "impossible";
+                }
+            }
+    
+            end = System.currentTimeMillis();
+            this.cpuTime = end - start;
+    
+            //printFinalStats();
+            //System.out.println("Number of solutions: " + solution);
+        } else {
+            //System.out.println("First solution: No solutions");
+        }
+
+        printCSV2(s, solution);
     }
 
 }

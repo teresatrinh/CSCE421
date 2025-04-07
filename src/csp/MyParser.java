@@ -96,25 +96,30 @@ public class MyParser {
 
     public static void main(String[] args) {
 
-        MyParser parser = null;
-        Solver solver = new Solver();
-        String search = null;
+        //MyParser parser = null;
+        //Solver solver = new Solver();
+        //String search = null;
 
-        for (int i = 0; i < args.length; i += 2) {
-            if (args[i].equals("-f")) {
-                parser = new MyParser(args[i + 1]);
-                solver = new Solver(parser);
-            } else if (args[i].equals("-u")) {
-                solver.setVariableHeuristic(args[i+1]);
-            } else if (args[i].equals("-s")) {
-                search = args[i+1];
-            }
-        }
+        //for (int i = 0; i < args.length; i += 2) {
+        //    if (args[i].equals("-f")) {
+        //        parser = new MyParser(args[i + 1]);
+        //        solver = new Solver(parser);
+        //    } else if (args[i].equals("-u")) {
+        //        solver.setVariableHeuristic(args[i+1]);
+        //    } else if (args[i].equals("-s")) {
+        //        search = args[i+1];
+        //    }
+        //}
 
-        switch (search) {
-            case "BT" -> solver.backtrack();
-            case "CBJ" -> solver.cbj();
-        }
+        //switch (search) {
+        //    case "BT" -> solver.backtrack();
+        //    case "CBJ" -> solver.cbj();
+        //}
+
+        MyParser parser = new MyParser(args[1]);
+        Solver solver = new Solver(parser);
+        solver.fc();
+
 
     }
 

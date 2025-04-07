@@ -1,5 +1,6 @@
 package csp;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Domain {
@@ -34,13 +35,35 @@ public class Domain {
 
     public void removeValue(int a) {
         int[] newValues = new int[this.values.length - 1];
-        for (int i = 0, k = 0; i < this.values.length; i++) {
-            if (this.values[i] != a) {
-                newValues[k] = this.values[i];
-                k++;
+        int index = 0;
+        if (this.contains(a)){
+            for (int i = 0; i < this.values.length; i++) {
+                if (this.values[i] != a) {
+                    newValues[index] = this.values[i];
+                    index++;
+                }
+            }
+            this.values = newValues;
+        }
+        
+    }
+
+    public void add(int a) {
+        int[] newValues = new int[this.values.length + 1];
+        if (!this.contains(a)) {
+            System.arraycopy(this.values, 0, newValues, 0, this.values.length);
+            newValues[this.values.length] = a;
+            this.values = newValues;
+        } 
+    }
+
+    public boolean contains(int a) {
+        for (int x : this.values) {
+            if (x == a) {
+                return true;
             }
         }
-        this.values = newValues;
+        return false;
     }
 
     public void removeIndex(int a) {
@@ -68,6 +91,18 @@ public class Domain {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public void removeAll(ArrayList<Integer> values) {
+        for (int x : values) {
+            this.removeValue(x);
+        }
+    }
+
+    public void addAll(ArrayList<Integer> values) {
+        for (int x : values) {
+            this.add(x);
         }
     }
 
