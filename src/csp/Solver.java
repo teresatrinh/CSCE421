@@ -25,9 +25,9 @@ public class Solver {
     private ArrayList<HashSet<Integer>> conflictSet = new ArrayList<>();
     private boolean consistent = true;
     private String status = null;
-    private ArrayList<Stack<Integer>> futureFC = new ArrayList();
-    private ArrayList<Stack<Integer>> pastFC = new ArrayList();
-    private ArrayList<HashMap<Integer, ArrayList<Integer>>> reductions = new ArrayList();
+    private ArrayList<Stack<Integer>> futureFC = new ArrayList<>();
+    private ArrayList<Stack<Integer>> pastFC = new ArrayList<>();
+    private ArrayList<HashMap<Integer, ArrayList<Integer>>> reductions = new ArrayList<>();
     
         public Solver(MyParser problem) {
             this.problem = problem;
@@ -489,9 +489,13 @@ public class Solver {
         ArrayList<Integer> reduction = new ArrayList<>();
 
         for (int x : currentDomain.get(j).getValues()) {
+            currentPath.get(j).setValue(x);
+
             if (!check(i, j)) {
-                reduction.add(currentPath.get(j).getValue());
+                reduction.add(x);
             }
+
+            this.cc++;
         }
         if (!reduction.isEmpty()) {
             currentDomain.get(j).removeAll(reduction);
@@ -509,20 +513,23 @@ public class Solver {
 
     // undo-reductions as detailed in Prosser's paper
     private void undoReduction(int i) {
-        for (int j : futureFC.get(i)) {
+
+        while(!futureFC.get(i).isEmpty()) {
+            int j = futureFC.get(i).pop();
+
             ArrayList<Integer> reduction = reductions.get(j).remove(i);
             currentDomain.get(j).addAll(reduction);
             pastFC.get(j).pop();
         }
+
         futureFC.get(i).clear();
     } 
 
     // updated-current-domain as detailed in Prosser's paper
     private void updatedCurrentDomain(int i) {
-        currentDomain.get(i).setValues(initialDomain.get(i).getValues());
-        for (Map.Entry<Integer, ArrayList<Integer>> entry : reductions.get(i).entrySet()) {
-            ArrayList<Integer> list = entry.getValue();
-            currentDomain.get(i).removeAll(list);
+        currentDomain.get(i).setValues(initialDomain.get(i).getValues().clone());
+        for (ArrayList<Integer> reduction: reductions.get(i).values()) {
+            currentDomain.get(i).removeAll(reduction);
         }
     }
 
@@ -532,26 +539,23 @@ public class Solver {
         int problemSize = problem.getVariables().size();
         for (int x : currentDomain.get(i).getValues()) {
             currentPath.get(i).setValue(x);
-            if (!this.consistent) {
-                this.consistent = true;
-                for (int j = i + 1; j < problemSize; j++) {
-                    if (consistent) {
-                        consistent = checkForward(i, j);
-                    } else {
-                        currentDomain.get(i).removeValue(currentPath.get(i).getValue());
-                        undoReduction(i);
-                        break;
-                    }
-                }
-            } else {
-                break;
+            this.nv++;
+
+            consistent = true;
+            for (int j = i + 1; j < problemSize && consistent; j++) {
+                consistent = checkForward(i, j);
             }
+
+            if (!consistent) {
+                currentDomain.get(i).removeValue(x);
+                undoReduction(i);
+            } else {
+                return i + 1;
+            }
+
         }
-        if (consistent) {
-            return i +1;
-        } else {
-            return i;
-        }
+        
+        return i;
     }
 
     // fc-unlabel as detailed in Prosser's paper
@@ -565,6 +569,7 @@ public class Solver {
         updatedCurrentDomain(i);
         currentDomain.get(h).removeValue(currentPath.get(h).getValue());
         consistent = !currentDomain.get(h).isEmpty();
+        this.bt++;
         return h;
     }
 
@@ -577,6 +582,7 @@ public class Solver {
 
         int i = 0;
         int solution = 0;
+        this.status = null;
 
         while (status == null) {
             if (consistent) {
@@ -584,11 +590,19 @@ public class Solver {
             } else {
                 i = fcUnlabel(i);
             }
+
             if (i == this.problem.getVariables().size()) {
                 status = "solution";
                 solution++;
             } else if (i == -1) {
                 status = "impossible";
+            }
+
+            // timeout if algorithm runs longer than 1 hour
+            long end = System.currentTimeMillis();
+            if((end - start > 3600000)) {
+                status = "timeout";
+                break;
             }
         }
 
@@ -602,6 +616,7 @@ public class Solver {
             //printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
+
             while (status.equals("solution") & i >= 0) {
                 end = System.currentTimeMillis();
                 if ((end - start) > 3600000) {
