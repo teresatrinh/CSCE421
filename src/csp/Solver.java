@@ -2,6 +2,8 @@ package csp;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+
 import static java.util.Collections.max;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -48,6 +50,9 @@ public class Solver {
                 case "LD" -> Collections.sort(currentPath, InstantiatedVariable.ByDomain);
                 case "DEG" -> Collections.sort(currentPath, InstantiatedVariable.ByNeighbor);
                 default -> Collections.sort(currentPath, InstantiatedVariable.ByName);
+                case "dDD" -> this.varStaticDynamic = "dynamic";
+                case "dLD" -> this.varStaticDynamic = "dynamic";
+                case "dDEG" -> this.varStaticDynamic = "dynamic";
             }
         }
     
@@ -549,7 +554,7 @@ public class Solver {
                 currentDomain.get(i).removeValue(x);
                 undoReduction(i);
             } else {
-                return i + 1;
+                return selectNextVariable(i);
             }
 
         }
@@ -648,6 +653,100 @@ public class Solver {
         //printCSV2(s, solution);
     }
 
-    
+    // this method will help select the next variable for dynamic ordering
+    private int selectNextVariable(int i) {
+        
+        // if this is the variable, returns i + 1
+        if (i >= problem.getVariables().size() - 1) {
+            return i + 1;
+        }
+
+        if (!varStaticDynamic.equals("dynamic")) {
+            return i + 1;
+        }
+
+        ArrayList<VariableScore> scores = new ArrayList<>();
+        int next = i + 1;
+
+        for (int j = next; i < problem.getVariables().size(); i++) {
+            VariableScore score = scoreVariable(i);
+            score.setIndex(i);
+            scores.add(score);
+        }
+
+        switch (varOrderingHeuristic) {
+            case "dLD" -> scores.sort(Comparator.comparingInt(VariableScore::getDomainSize));
+            case "dDEG" -> scores.sort(Comparator.comparingInt(VariableScore::getDegree));
+            case "dDD" -> scores.sort(Comparator.comparingDouble(VariableScore::getRatio));
+            default -> scores.sort(Comparator.comparingInt(VariableScore::getIndex));
+        }
+
+        int best = scores.get(0).getIndex();
+
+        if (best != next) {
+            swapVariables(next, best);
+        }
+
+        return next;
+    }
+
+    // calculates current values of variable for ordering
+    private VariableScore scoreVariable(int i) {
+        Variable var = currentPath.get(i).getVar();
+
+        int domainSize = currentDomain.get(i).length();
+
+        int degree = 0;
+        for (Constraint constraint : problem.getConstraints()) {
+            ArrayList<Variable> scope = constraint.getScope();
+            if (scope.contains(var)) {
+                for (Variable v : scope) {
+                    int j = getVariableIndex(v);
+                    if (j > i) {
+                        degree++;
+                    }
+                }
+            }
+        }
+
+        return new VariableScore(domainSize, degree);
+
+    }
+
+    // gets index of current variable in current path
+    private int getVariableIndex(Variable var) {
+        for (int i = 0; i < currentPath.size(); i++) {
+            if(currentPath.get(i).getVar().equals(var)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private void swapVariables(int i, int j) {
+        InstantiatedVariable temp = currentPath.get(i);
+        currentPath.set(i, currentPath.get(j));
+        currentPath.set(j, temp);
+
+        Domain tempDomain = currentDomain.get(i);
+        currentDomain.set(i, currentDomain.get(j));
+        currentDomain.set(j, tempDomain);
+
+        Domain tempInitialDomain = initialDomain.get(i);
+        initialDomain.set(i, initialDomain.get(j));
+        initialDomain.set(j, tempInitialDomain);
+        
+        Stack<Integer> tempPast = pastFC.get(i);
+        pastFC.set(i, pastFC.get(j));
+        pastFC.set(j, tempPast);
+
+        Stack<Integer> tempFuture = futureFC.get(i);
+        futureFC.set(i, futureFC.get(j));
+        futureFC.set(j, tempFuture);
+
+        HashMap<Integer, ArrayList<Integer>> tempReduction = reductions.get(i);
+        reductions.set(i, reductions.get(j));
+        reductions.set(j, tempReduction);
+    }
 
 }
