@@ -5,7 +5,6 @@ import java.util.Collections;
 import static java.util.Collections.max;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Stack;
 
 public class Solver {
@@ -16,9 +15,9 @@ public class Solver {
     private int nv;
     private int bt;
     private String varOrderingHeuristic = "LX";
-    private String varStaticDynamic = "dynamic";
+    private String varStaticDynamic = "static";
     private String valueOrderingHeuristic = "LX";
-    private String valueStaticDynamic = "dynamic";
+    private String valueStaticDynamic = "static";
     private ArrayList<InstantiatedVariable> currentPath = new ArrayList<>();
     private ArrayList<Domain> currentDomain = new ArrayList<>();
     private ArrayList<Domain> initialDomain = new ArrayList<>();
@@ -609,11 +608,11 @@ public class Solver {
         long end = System.currentTimeMillis();
         this.cpuTime = end - start;
 
-        String s = printCSV1();
-        //this.printStats("BT");
+        //String s = printCSV1();
+        this.printStats("BT");
         
         if (status.equals("solution")) {
-            //printSolution();
+            printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
 
@@ -640,13 +639,15 @@ public class Solver {
             end = System.currentTimeMillis();
             this.cpuTime = end - start;
     
-            //printFinalStats();
-            //System.out.println("Number of solutions: " + solution);
+            printFinalStats();
+            System.out.println("Number of solutions: " + solution);
         } else {
-            //System.out.println("First solution: No solutions");
+            System.out.println("First solution: No solutions");
         }
 
-        printCSV2(s, solution);
+        //printCSV2(s, solution);
     }
+
+    
 
 }
