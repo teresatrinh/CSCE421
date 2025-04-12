@@ -2,9 +2,8 @@ package csp;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-
 import static java.util.Collections.max;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Stack;
@@ -60,6 +59,8 @@ public class Solver {
             this.problem = problem;
     
             ArrayList<Variable> variables = problem.getVariables();
+
+            
     
             for (Variable v : variables) {
                 // creating deep copies of each domain so that initial Domain is not changed when current domain is
@@ -73,6 +74,9 @@ public class Solver {
                 this.initialDomain.add(domain2);
                 HashSet<Integer> set = new HashSet<>();
                 HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
+                for (int i = 0; i < problem.getVariables().size(); i++) {
+                    map.put(i, new ArrayList<>());
+                }
                 Stack<Integer> stack = new Stack();
                 Stack<Integer> stack2 = new Stack();
                 set.add(0);
@@ -520,13 +524,15 @@ public class Solver {
 
         while(!futureFC.get(i).isEmpty()) {
             int j = futureFC.get(i).pop();
-
-            ArrayList<Integer> reduction = reductions.get(j).remove(i);
-            currentDomain.get(j).addAll(reduction);
-            pastFC.get(j).pop();
+            
+            if (reductions.get(j).containsKey(i)) {
+                ArrayList<Integer> reduction = reductions.get(j).remove(i);
+                currentDomain.get(j).addAll(reduction);
+            }
+            if (!pastFC.get(j).empty()) {
+                pastFC.get(j).pop();
+            }
         }
-
-        futureFC.get(i).clear();
     } 
 
     // updated-current-domain as detailed in Prosser's paper
@@ -657,20 +663,16 @@ public class Solver {
     private int selectNextVariable(int i) {
         
         // if this is the variable, returns i + 1
-        if (i >= problem.getVariables().size() - 1) {
-            return i + 1;
-        }
-
-        if (!varStaticDynamic.equals("dynamic")) {
+        if ((i >= problem.getVariables().size() - 1) || !varStaticDynamic.equals("dynamic")) {
             return i + 1;
         }
 
         ArrayList<VariableScore> scores = new ArrayList<>();
         int next = i + 1;
 
-        for (int j = next; i < problem.getVariables().size(); i++) {
-            VariableScore score = scoreVariable(i);
-            score.setIndex(i);
+        for (int j = next; j < problem.getVariables().size(); j++) {
+            VariableScore score = scoreVariable(j);
+            score.setIndex(j);
             scores.add(score);
         }
 
@@ -747,6 +749,17 @@ public class Solver {
         HashMap<Integer, ArrayList<Integer>> tempReduction = reductions.get(i);
         reductions.set(i, reductions.get(j));
         reductions.set(j, tempReduction);
+
+        for (int x = 0;x < i;x++) {
+            int index = futureFC.get(x).indexOf(i);
+            if (index >= 0) {
+                futureFC.remove(index);
+                Stack<Integer> stack = new Stack<>();
+                stack.add(j);
+                futureFC.add(index, stack);
+            }
+            
+        }
     }
 
 }

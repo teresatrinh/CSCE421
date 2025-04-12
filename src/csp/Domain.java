@@ -101,9 +101,12 @@ public class Domain {
     }
 
     public void addAll(ArrayList<Integer> values) {
-        for (int x : values) {
+        if (!values.isEmpty()) {
+            for (int x : values) {
             this.add(x);
+            }
         }
+
     }
 
     public void sort() {
