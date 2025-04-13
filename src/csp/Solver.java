@@ -620,7 +620,7 @@ public class Solver {
         this.cpuTime = end - start;
 
         // String s = printCSV1();
-        this.printStats("BT");
+        this.printStats("FC");
         
         if (status.equals("solution")) {
             printSolution();
