@@ -1,0 +1,240 @@
+First solution: No solutions
+3q-conflict,LX,34,5,2,0.0,34,5,2,0.0,0,Q1,Q2,Q3,
+First solution: No solutions
+3q-conflict,LD,34,5,2,1.0,34,5,2,1.0,0,Q1,Q2,Q3,
+First solution: No solutions
+3q-conflict,DEG,34,5,2,0.0,34,5,2,0.0,0,Q1,Q2,Q3,
+First solution: No solutions
+3q-conflict,DD,34,5,2,0.0,34,5,2,0.0,0,Q1,Q2,Q3,
+First solution: No solutions
+3q-intension,LX,34,5,2,2.0,34,5,2,2.0,0,V0,V1,V2,
+First solution: No solutions
+3q-intension,LD,34,5,2,3.0,34,5,2,3.0,0,V0,V1,V2,
+First solution: No solutions
+3q-intension,DEG,34,5,2,3.0,34,5,2,3.0,0,V0,V1,V2,
+First solution: No solutions
+3q-intension,DD,34,5,2,3.0,34,5,2,3.0,0,V0,V1,V2,
+Number of solutions: 2
+4q-conflicts,LX,76,8,2,1.0,152,16,10,51.0,2,V0,V1,V2,V3,
+Number of solutions: 2
+4q-conflicts,LD,76,8,2,0.0,152,16,10,29.0,2,V0,V1,V2,V3,
+Number of solutions: 2
+4q-conflicts,DEG,76,8,2,1.0,152,16,10,35.0,2,V0,V1,V2,V3,
+Number of solutions: 2
+4q-conflicts,DD,76,8,2,1.0,152,16,10,34.0,2,V0,V1,V2,V3,
+Number of solutions: 256
+4q-supports,LX,48,4,0,0.0,864,340,84,38.0,256,V0,V1,V2,V3,
+Number of solutions: 256
+4q-supports,LD,48,4,0,0.0,864,340,84,38.0,256,V0,V1,V2,V3,
+Number of solutions: 256
+4q-supports,DEG,48,4,0,1.0,864,340,84,33.0,256,V0,V1,V2,V3,
+Number of solutions: 256
+4q-supports,DD,48,4,0,1.0,864,340,84,34.0,256,V0,V1,V2,V3,
+Number of solutions: 10
+5q-intension,LX,68,5,0,7.0,564,53,39,54.0,10,V0,V1,V2,V3,V4,
+Number of solutions: 10
+5q-intension,LD,68,5,0,7.0,564,53,39,53.0,10,V0,V1,V2,V3,V4,
+Number of solutions: 10
+5q-intension,DEG,68,5,0,5.0,564,53,39,50.0,10,V0,V1,V2,V3,V4,
+Number of solutions: 10
+5q-intension,DD,68,5,0,7.0,564,53,39,53.0,10,V0,V1,V2,V3,V4,
+Number of solutions: 4
+6q-conflicts,LX,442,26,11,2.0,1928,130,82,92.0,4,Q1,Q2,Q3,Q4,Q5,Q6,
+Number of solutions: 4
+6q-conflicts,LD,442,26,11,2.0,1928,130,82,41.0,4,Q1,Q2,Q3,Q4,Q5,Q6,
+Number of solutions: 4
+6q-conflicts,DEG,442,26,11,3.0,1928,130,82,40.0,4,Q1,Q2,Q3,Q4,Q5,Q6,
+Number of solutions: 4
+6q-conflicts,DD,442,26,11,3.0,1928,130,82,41.0,4,Q1,Q2,Q3,Q4,Q5,Q6,
+Number of solutions: 4
+6q-intension,LX,442,26,11,40.0,1928,130,82,95.0,4,V0,V1,V2,V3,V4,V5,
+Number of solutions: 4
+6q-intension,LD,442,26,11,46.0,1928,130,82,160.0,4,V0,V1,V2,V3,V4,V5,
+Number of solutions: 4
+6q-intension,DEG,442,26,11,70.0,1928,130,82,176.0,4,V0,V1,V2,V3,V4,V5,
+Number of solutions: 4
+6q-intension,DD,442,26,11,33.0,1928,130,82,89.0,4,V0,V1,V2,V3,V4,V5,
+Number of solutions: 15
+Instance0,LX,1028777,25692,10566,1738.0,1486237,36904,15089,2071.0,15,V0,V1,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,V2,V3,V4,V5,V6,V7,V8,V9,
+Number of solutions: 15
+Instance0,LD,1133781,46093,16969,1124.0,1634326,66815,24916,1388.0,15,V0,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,
+Number of solutions: 15
+Instance0,DEG,16899011,522570,155614,7900.0,60943489,1847665,534083,30249.0,15,V10,V7,V3,V6,V11,V9,V0,V8,V15,V18,V1,V2,V4,V13,V14,V17,V5,V19,V12,V16,
+Number of solutions: 15
+Instance0,DD,250351,5703,2712,203.0,388013,9049,4292,307.0,15,V0,V1,V2,V4,V5,V8,V9,V12,V13,V14,V15,V16,V17,V18,V19,V3,V6,V7,V11,V10,
+Number of solutions: 1
+orderchain,LX,148,15,4,1.0,148,15,7,27.0,1,V1,V2,V3,V4,
+Number of solutions: 1
+orderchain,LD,148,15,4,1.0,148,15,7,30.0,1,V1,V2,V3,V4,
+Number of solutions: 1
+orderchain,DEG,201,26,8,1.0,252,35,13,28.0,1,V1,V4,V2,V3,
+Number of solutions: 1
+orderchain,DD,77,8,1,0.0,93,9,4,28.0,1,V2,V3,V1,V4,
+Number of solutions: 18
+ColAustralia-conflicts,LX,71,7,0,1.0,450,84,60,31.0,18,NSW,NT,Q,SA,T,V,WA,
+Number of solutions: 18
+ColAustralia-conflicts,LD,71,7,0,1.0,450,84,60,30.0,18,NSW,NT,Q,SA,T,V,WA,
+Number of solutions: 18
+ColAustralia-conflicts,DEG,74,7,0,1.0,1764,237,129,36.0,18,T,V,WA,NSW,NT,Q,SA,
+Number of solutions: 18
+ColAustralia-conflicts,DD,65,7,0,1.0,621,120,84,30.0,18,SA,T,NSW,NT,Q,V,WA,
+Number of solutions: 18
+ColAustralia-intension,LX,71,7,0,2.0,450,84,60,25.0,18,NewSouthWales,NorthernTerritory,Queensland,SouthAustralia,Tasmania,Victoria,WesternAustralia,
+Number of solutions: 18
+ColAustralia-intension,LD,71,7,0,2.0,450,84,60,23.0,18,NewSouthWales,NorthernTerritory,Queensland,SouthAustralia,Tasmania,Victoria,WesternAustralia,
+Number of solutions: 18
+ColAustralia-intension,DEG,74,7,0,2.0,1764,237,129,44.0,18,Tasmania,Victoria,WesternAustralia,NewSouthWales,NorthernTerritory,Queensland,SouthAustralia,
+Number of solutions: 18
+ColAustralia-intension,DD,65,7,0,1.0,621,120,84,29.0,18,SouthAustralia,Tasmania,NewSouthWales,NorthernTerritory,Queensland,Victoria,WesternAustralia,
+Number of solutions: 2
+mutexK4,LX,17,4,0,0.0,34,8,6,30.0,2,V1,V2,V3,V4,
+Number of solutions: 2
+mutexK4,LD,17,4,0,0.0,34,8,6,86.0,2,V1,V2,V3,V4,
+Number of solutions: 2
+mutexK4,DEG,17,4,0,1.0,34,8,6,29.0,2,V1,V2,V3,V4,
+Number of solutions: 2
+mutexK4,DD,17,4,0,0.0,34,8,6,29.0,2,V1,V2,V3,V4,
+Number of solutions: 390970292
+zebra,LX,1561,25,0,31.0,2083399632,1635452596,1244482282,3600001.0,390970292,Chesterfield,England,Japan,Kool,LuckyStripe,Norway,OldGold,Parliment,Spain,Ukrane,blue,coffee,dog,fox,green,horse,ivory,milk,oj,red,snail,tea,water,yellow,zebra,
+Number of solutions: 783895311
+zebra,LD,1709,25,0,8.0,-11333740,2140890173,1356994838,3600004.0,783895311,Norway,England,Japan,Spain,Ukrane,blue,red,green,yellow,ivory,coffee,tea,oj,milk,water,horse,snail,zebra,fox,dog,Chesterfield,Parliment,LuckyStripe,Kool,OldGold,
+Number of solutions: 901105796
+zebra,DEG,1556,25,0,6.0,1285479267,-1712612633,1681248843,3600001.0,901105796,milk,water,zebra,Norway,England,Japan,Spain,Ukrane,blue,red,yellow,ivory,coffee,tea,oj,horse,snail,fox,dog,Chesterfield,Parliment,LuckyStripe,OldGold,green,Kool,
+Number of solutions: 934970178
+zebra,DD,1612,25,0,9.0,-1567868247,-1695320335,1664676761,3600001.0,934970178,green,Kool,Norway,England,Japan,Spain,Ukrane,blue,red,yellow,ivory,coffee,tea,oj,milk,water,horse,snail,zebra,fox,dog,Chesterfield,Parliment,LuckyStripe,OldGold,
+Number of solutions: 1488
+zebra-intension-binary,LX,32870,2232,1619,229.0,5837248,371853,261241,9850.0,1488,V0,V1,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,V2,V20,V21,V22,V23,V24,V3,V4,V5,V6,V7,V8,V9,
+Number of solutions: 1488
+zebra-intension-binary,LD,1564,41,8,18.0,1776536,73873,49041,2687.0,1488,V0,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,V20,V21,V22,V23,V24,
+Number of solutions: 1488
+zebra-intension-binary,DEG,165736,5073,2747,436.0,65198741,2124134,1183958,97501.0,1488,V16,V21,V24,V1,V2,V3,V4,V5,V7,V8,V9,V10,V11,V12,V13,V14,V15,V17,V18,V19,V20,V22,V23,V0,V6,
+Number of solutions: 1488
+zebra-intension-binary,DD,1361,34,2,22.0,1731952,73358,48621,2588.0,1488,V0,V6,V1,V2,V3,V4,V5,V7,V8,V9,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,V20,V21,V22,V23,V24,
+Number of solutions: 937060149
+zebra-supports,LX,1807,25,0,8.0,-150857820,-2049900271,1308006852,3600001.0,937060149,Chesterfield,England,Japan,Kool,LuckyStripe,Norway,OldGold,Parliment,Spain,Ukrane,blue,coffee,dog,fox,green,horse,ivory,milk,oj,red,snail,tea,water,yellow,zebra,
+Number of solutions: 1376816229
+zebra-supports,LD,1807,25,0,8.0,489621918,-1500205170,1417945874,3600001.0,1376816229,Norway,England,Japan,Spain,Ukrane,blue,red,green,yellow,ivory,coffee,tea,oj,milk,water,horse,snail,zebra,fox,dog,Chesterfield,Parliment,LuckyStripe,Kool,OldGold,
+Number of solutions: 467932404
+zebra-supports,DEG,1807,25,0,8.0,331346235,1658657345,1190724918,3600001.0,467932404,milk,water,zebra,Norway,England,Japan,Spain,Ukrane,blue,red,yellow,ivory,coffee,tea,oj,horse,snail,fox,dog,Chesterfield,Parliment,LuckyStripe,OldGold,green,Kool,
+Number of solutions: -1729032197
+zebra-supports,DD,1807,25,0,12.0,-297643723,-13806582,1715225591,3600001.0,-1729032197,green,Kool,Norway,England,Japan,Spain,Ukrane,blue,red,yellow,ivory,coffee,tea,oj,milk,water,horse,snail,zebra,fox,dog,Chesterfield,Parliment,LuckyStripe,OldGold,
+First solution: No solutions
+3q-conflict,dLX,34,5,2,0.0,34,5,2,0.0,0,Q1,Q2,Q3,
+First solution: No solutions
+3q-conflict,dLD,34,5,2,2.0,34,5,2,2.0,0,Q1,Q2,Q3,
+First solution: No solutions
+3q-conflict,dDEG,30,5,2,2.0,30,5,2,2.0,0,Q1,Q2,Q3,
+First solution: No solutions
+3q-conflict,dDD,34,5,2,3.0,34,5,2,3.0,0,Q1,Q2,Q3,
+First solution: No solutions
+3q-intension,dLX,34,5,2,3.0,34,5,2,3.0,0,V0,V1,V2,
+First solution: No solutions
+3q-intension,dLD,34,5,2,6.0,34,5,2,6.0,0,V0,V1,V2,
+First solution: No solutions
+3q-intension,dDEG,30,5,2,18.0,30,5,2,18.0,0,V0,V1,V2,
+First solution: No solutions
+3q-intension,dDD,34,5,2,7.0,34,5,2,7.0,0,V0,V1,V2,
+Number of solutions: 2
+4q-conflicts,dLX,76,8,2,1.0,152,16,10,38.0,2,V0,V1,V2,V3,
+Number of solutions: 2
+4q-conflicts,dLD,76,8,2,2.0,152,16,10,52.0,2,V0,V1,V2,V3,
+Number of solutions: 1
+4q-conflicts,dDEG,64,8,2,15.0,96,13,6,57.0,1,V0,V1,V3,V2,
+Number of solutions: 2
+4q-conflicts,dDD,76,8,2,4.0,152,16,10,51.0,2,V0,V1,V2,V3,
+Number of solutions: 256
+4q-supports,dLX,48,4,0,0.0,864,340,84,30.0,256,V0,V1,V2,V3,
+Number of solutions: 256
+4q-supports,dLD,48,4,0,3.0,864,340,84,36.0,256,V0,V1,V2,V3,
+Number of solutions: 256
+4q-supports,dDEG,48,4,0,3.0,864,340,84,36.0,256,V0,V1,V2,V3,
+Number of solutions: 256
+4q-supports,dDD,48,4,0,4.0,864,340,84,34.0,256,V0,V1,V2,V3,
+Number of solutions: 10
+5q-intension,dLX,68,5,0,7.0,564,53,39,53.0,10,V0,V1,V2,V3,V4,
+Number of solutions: 10
+5q-intension,dLD,68,5,0,8.0,564,53,39,52.0,10,V0,V1,V2,V3,V4,
+Number of solutions: 2
+5q-intension,dDEG,90,8,1,10.0,294,32,15,47.0,2,V0,V1,V4,V3,V2,
+Number of solutions: 10
+5q-intension,dDD,68,5,0,8.0,564,53,39,52.0,10,V0,V1,V2,V3,V4,
+Number of solutions: 4
+6q-conflicts,dLX,442,26,11,5.0,1928,130,82,42.0,4,Q1,Q2,Q3,Q4,Q5,Q6,
+Number of solutions: 3
+6q-conflicts,dLD,442,25,11,4.0,1010,64,41,35.0,3,Q1,Q6,Q3,Q4,Q2,Q5,
+Number of solutions: 1
+6q-conflicts,dDEG,388,27,9,5.0,788,59,27,41.0,1,Q1,Q2,Q5,Q6,Q3,Q4,
+Number of solutions: 4
+6q-conflicts,dDD,442,26,11,5.0,1928,130,82,40.0,4,Q1,Q2,Q3,Q4,Q5,Q6,
+Number of solutions: 4
+6q-intension,dLX,442,26,11,35.0,1928,130,82,94.0,4,V0,V1,V2,V3,V4,V5,
+Number of solutions: 3
+6q-intension,dLD,442,25,11,30.0,1010,64,41,69.0,3,V0,V5,V2,V3,V1,V4,
+Number of solutions: 1
+6q-intension,dDEG,388,27,9,30.0,788,59,27,58.0,1,V0,V1,V4,V5,V2,V3,
+Number of solutions: 4
+6q-intension,dDD,442,26,11,37.0,1928,130,82,127.0,4,V0,V1,V2,V3,V4,V5,
+Number of solutions: 15
+Instance0,dLX,1028777,25692,10566,885.0,1486237,36904,15089,1147.0,15,V0,V1,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,V2,V3,V4,V5,V6,V7,V8,V9,
+First solution: No solutions
+Instance0,dLD,2977,31,19,23.0,2977,31,19,23.0,0,V0,V14,V12,V13,V18,V8,V2,V5,V4,V9,V10,V11,V7,V3,V1,V15,V16,V17,V6,V19,
+First solution: No solutions
+Instance0,dDEG,22181,496,192,328.0,22181,496,192,328.0,0,V0,V6,V5,V2,V3,V8,V11,V18,V12,V13,V9,V4,V10,V19,V14,V15,V16,V17,V1,V7,
+First solution: No solutions
+Instance0,dDD,4258,54,32,58.0,4258,54,32,58.0,0,V0,V13,V2,V7,V8,V12,V1,V9,V4,V14,V5,V15,V10,V3,V11,V6,V16,V17,V18,V19,
+Number of solutions: 1
+orderchain,dLX,148,15,4,1.0,148,15,7,30.0,1,V1,V2,V3,V4,
+Number of solutions: 1
+orderchain,dLD,148,15,4,3.0,148,15,7,32.0,1,V1,V2,V3,V4,
+First solution: No solutions
+orderchain,dDEG,96,17,6,3.0,96,17,6,3.0,0,V1,V2,V3,V4,
+Number of solutions: 1
+orderchain,dDD,148,15,4,5.0,148,15,7,34.0,1,V1,V2,V3,V4,
+Number of solutions: 18
+ColAustralia-conflicts,dLX,71,7,0,0.0,450,84,60,41.0,18,NSW,NT,Q,SA,T,V,WA,
+Number of solutions: 9
+ColAustralia-conflicts,dLD,77,7,0,2.0,203,27,15,40.0,9,NSW,Q,SA,NT,WA,V,T,
+Number of solutions: 1
+ColAustralia-conflicts,dDEG,284,42,20,5.0,293,44,26,35.0,1,NSW,T,NT,Q,WA,V,SA,
+Number of solutions: 6
+ColAustralia-conflicts,dDD,69,7,0,3.0,186,31,21,38.0,6,NSW,SA,NT,Q,T,V,WA,
+Number of solutions: 18
+ColAustralia-intension,dLX,71,7,0,2.0,450,84,60,31.0,18,NewSouthWales,NorthernTerritory,Queensland,SouthAustralia,Tasmania,Victoria,WesternAustralia,
+Number of solutions: 9
+ColAustralia-intension,dLD,77,7,0,5.0,203,27,15,25.0,9,NewSouthWales,Queensland,SouthAustralia,NorthernTerritory,WesternAustralia,Victoria,Tasmania,
+Number of solutions: 1
+ColAustralia-intension,dDEG,284,42,20,7.0,293,44,26,26.0,1,NewSouthWales,Tasmania,NorthernTerritory,Queensland,WesternAustralia,Victoria,SouthAustralia,
+Number of solutions: 6
+ColAustralia-intension,dDD,69,7,0,3.0,186,31,21,24.0,6,NewSouthWales,SouthAustralia,NorthernTerritory,Queensland,Tasmania,Victoria,WesternAustralia,
+Number of solutions: 2
+mutexK4,dLX,17,4,0,0.0,34,8,6,31.0,2,V1,V2,V3,V4,
+Number of solutions: 2
+mutexK4,dLD,17,4,0,6.0,34,8,6,43.0,2,V1,V2,V3,V4,
+Number of solutions: 1
+mutexK4,dDEG,17,4,0,7.0,19,5,3,75.0,1,V1,V4,V2,V3,
+Number of solutions: 2
+mutexK4,dDD,17,4,0,2.0,34,8,6,30.0,2,V1,V2,V3,V4,
+Number of solutions: 466327600
+zebra,dLX,1561,25,0,7.0,-982174771,1950676666,1484349042,3600001.0,466327600,Chesterfield,England,Japan,Kool,LuckyStripe,Norway,OldGold,Parliment,Spain,Ukrane,blue,coffee,dog,fox,green,horse,ivory,milk,oj,red,snail,tea,water,yellow,zebra,
+Number of solutions: 427491223
+zebra,dLD,1709,25,0,15.0,-1569433591,1167517844,740026597,3600001.0,427491223,Norway,England,Japan,Spain,Ukrane,blue,red,green,yellow,ivory,coffee,tea,oj,milk,water,horse,snail,zebra,fox,dog,Chesterfield,Parliment,LuckyStripe,Kool,OldGold,
+Number of solutions: 67
+zebra,dDEG,1388,25,0,16.0,25400,1479,1046,124.0,67,Norway,dog,Ukrane,ivory,horse,zebra,OldGold,snail,green,Spain,Parliment,Kool,yellow,blue,Japan,England,red,fox,Chesterfield,coffee,tea,milk,LuckyStripe,water,oj,
+Number of solutions: 128408
+zebra,dDD,1490,25,0,14.0,2079231,597354,466621,2924.0,128408,Norway,ivory,horse,blue,Parliment,Kool,tea,coffee,snail,Spain,England,fox,LuckyStripe,Japan,Chesterfield,yellow,oj,zebra,water,green,Ukrane,milk,red,dog,OldGold,
+Number of solutions: 1488
+zebra-intension-binary,dLX,32870,2232,1619,160.0,5837248,371853,261241,11499.0,1488,V0,V1,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,V2,V20,V21,V22,V23,V24,V3,V4,V5,V6,V7,V8,V9,
+First solution: No solutions
+zebra-intension-binary,dLD,3485,73,53,52.0,3485,73,53,52.0,0,V0,V23,V10,V1,V22,V13,V18,V9,V2,V6,V7,V19,V12,V14,V5,V11,V16,V4,V3,V17,V8,V15,V21,V20,V24,
+First solution: No solutions
+zebra-intension-binary,dDEG,6364,168,79,86.0,6364,168,79,86.0,0,V0,V2,V3,V6,V9,V4,V8,V19,V23,V22,V16,V15,V14,V13,V7,V11,V12,V1,V5,V24,V18,V17,V20,V21,V10,
+Number of solutions: 2
+zebra-intension-binary,dDD,1444,34,2,24.0,4701,119,72,71.0,2,V0,V23,V22,V1,V10,V13,V3,V5,V12,V20,V7,V9,V18,V6,V11,V15,V2,V17,V19,V21,V8,V4,V14,V16,V24,
+Number of solutions: 1126292579
+zebra-supports,dLX,1807,25,0,10.0,154367570,-1813359730,1355314964,3600001.0,1126292579,Chesterfield,England,Japan,Kool,LuckyStripe,Norway,OldGold,Parliment,Spain,Ukrane,blue,coffee,dog,fox,green,horse,ivory,milk,oj,red,snail,tea,water,yellow,zebra,
+Number of solutions: 168032594
+zebra-supports,dLD,1807,25,0,10.0,1018826764,1283782584,1115749966,3600001.0,168032594,Norway,England,Japan,Spain,Ukrane,blue,red,green,yellow,ivory,coffee,tea,oj,milk,water,horse,snail,zebra,fox,dog,Chesterfield,Parliment,LuckyStripe,Kool,OldGold,
+Number of solutions: 108497579
+zebra-supports,dDEG,1807,25,0,17.0,-1725268611,1209363813,1100866212,3600001.0,108497579,Norway,ivory,England,water,milk,dog,Spain,Ukrane,blue,OldGold,Kool,yellow,zebra,red,tea,green,coffee,snail,oj,Japan,horse,Parliment,fox,Chesterfield,LuckyStripe,
+Number of solutions: -538685411
+zebra-supports,dDD,1807,25,0,10.0,1581797471,400385080,939070467,3600001.0,-538685411,Norway,horse,Japan,blue,red,green,coffee,snail,Chesterfield,Ukrane,tea,oj,Parliment,zebra,yellow,LuckyStripe,Spain,milk,fox,Kool,water,ivory,England,dog,OldGold,

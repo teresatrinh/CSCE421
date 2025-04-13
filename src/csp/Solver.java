@@ -619,11 +619,11 @@ public class Solver {
         long end = System.currentTimeMillis();
         this.cpuTime = end - start;
 
-        //String s = printCSV1();
-        this.printStats("BT");
+        String s = printCSV1();
+        //this.printStats("BT");
         
         if (status.equals("solution")) {
-            printSolution();
+            //printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
 
@@ -650,13 +650,13 @@ public class Solver {
             end = System.currentTimeMillis();
             this.cpuTime = end - start;
     
-            printFinalStats();
+            //printFinalStats();
             System.out.println("Number of solutions: " + solution);
         } else {
             System.out.println("First solution: No solutions");
         }
 
-        //printCSV2(s, solution);
+        printCSV2(s, solution);
     }
 
     // this method will help select the next variable for dynamic ordering
