@@ -64,6 +64,10 @@ public class Variable implements Comparable<Variable> {
         return currDomain;
     }
 
+    public ArrayList<Variable> getNeighbors() {
+        return neighbors;
+    }
+
     public int initialDomainLength() {
         return initDomain.length();
     }
@@ -126,5 +130,7 @@ public class Variable implements Comparable<Variable> {
     public void resetDomain() {
         this.currDomain = new Domain(initDomain.getName(), initDomain.getValues().clone());
     }
+
+
     
 }

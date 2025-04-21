@@ -115,6 +115,7 @@ public class MyParser {
             case "BT" -> solver.backtrack();
             case "CBJ" -> solver.cbj();
             case "FC" -> solver.fc();
+            case "FCCBJ" -> solver.fccbj();
         }
 
 

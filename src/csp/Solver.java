@@ -699,16 +699,13 @@ public class Solver {
         int domainSize = currentDomain.get(i).length();
 
         int degree = 0;
-        for (Constraint constraint : problem.getConstraints()) {
-            ArrayList<Variable> scope = constraint.getScope();
-            if (scope.contains(var)) {
-                for (Variable v : scope) {
-                    int j = getVariableIndex(v);
-                    if (j > i) {
-                        degree++;
-                    }
-                }
+        ArrayList<Variable> neighbors = var.getNeighbors();
+        for (Variable n : neighbors) {
+            int j = getIndex(n);
+            if (j > i) {
+                degree++;
             }
+
         }
 
         return new VariableScore(domainSize, degree);
@@ -760,6 +757,162 @@ public class Solver {
             }
             
         }
+    }
+
+    //implements fc-cbj-label as described in Prosser's paper
+    private int fccbjLabel(int i){
+        this.consistent = false;
+        int size = this.problem.getVariables().size();
+
+        for (int x : currentDomain.get(i).getValues()) {
+            currentPath.get(i).setValue(x);
+            this.nv++;
+            this.consistent = true;
+
+            for (int j = i + 1; j < size && this.consistent; j++) {
+                this.consistent = checkForward(i, j);
+
+                if (!this.consistent) {
+                    currentDomain.get(i).removeValue(x);
+                    undoReduction(i);
+                    conflictSet.get(i).addAll(pastFC.get(j));
+                    break;
+                }
+            }
+
+            if (this.consistent) {
+                return selectNextVariable(i);
+            }
+        }
+
+        return i;
+    }
+
+    private int fccbjUnlabel(int i) {
+        if (i == 0) {
+            this.status = "impossible";
+            return -1;
+        }
+
+        int max1;
+        int max2;
+
+        if (conflictSet.get(i).isEmpty()) {
+            max1 = -1;
+        } else {
+            max1 = max(conflictSet.get(i));
+        }
+
+        if (pastFC.get(i).isEmpty()) {
+            max2 = -1;
+        } else {
+            max2 = max(pastFC.get(i));
+        }
+
+        int h = Math.max(max1, max2);
+        conflictSet.get(h).addAll(conflictSet.get(i));
+        conflictSet.get(h).addAll(pastFC.get(i));
+        conflictSet.get(h).remove(h);
+
+        for (int j = i; j > h; j--) {
+            conflictSet.get(j).clear();
+            undoReduction(j);
+            updatedCurrentDomain(j);
+        }
+
+        undoReduction(h);
+        currentDomain.get(h).removeValue(currentPath.get(h).getValue());
+        consistent = !currentDomain.get(h).isEmpty();
+        this.bt++;
+
+        return h;
+    }
+
+    public void fccbj() {
+        long start = System.currentTimeMillis();
+
+        this.NC();
+
+        this.consistent = true;
+
+        int i = 0;
+        int solution = 0;
+        this.status = null;
+
+        while (status == null) {
+            if (consistent) {
+                i = fccbjLabel(i);
+            } else {
+                i = fccbjUnlabel(i);
+            }
+
+            if (i == this.problem.getVariables().size()) {
+                status = "solution";
+                solution++;
+            } else if (i == -1) {
+                status = "impossible";
+            }
+
+            // timeout if algorithm runs longer than 1 hour
+            long end = System.currentTimeMillis();
+            if((end - start > 3600000)) {
+                status = "timeout";
+                break;
+            }
+        }
+
+        long end = System.currentTimeMillis();
+        this.cpuTime = end - start;
+
+        // String s = printCSV1();
+        this.printStats("FC-CBJ");
+        
+        if (status.equals("solution")) {
+            printSolution();
+            currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
+            i--;
+
+            while (status.equals("solution") & i >= 0) {
+                end = System.currentTimeMillis();
+                if ((end - start) > 3600000) {
+                    status = "timeout";
+                    break;
+                }
+                if (consistent) {
+                    i = fccbjLabel(i);
+                } else {
+                    i = fccbjUnlabel(i);
+                }
+                if (i == this.problem.getVariables().size()) {
+                    solution++;
+                    currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
+                    i--;
+                } else if (i == -1) {
+                    status = "impossible";
+                }
+            }
+    
+            end = System.currentTimeMillis();
+            this.cpuTime = end - start;
+    
+            printFinalStats();
+            System.out.println("Number of solutions: " + solution);
+        } else {
+            System.out.println("First solution: No solutions");
+        }
+
+        //printCSV2(s, solution);
+    }
+
+    private int getIndex(Variable var) {
+        for (int x = 0; x < this.problem.getVariables().size(); x++) {
+            InstantiatedVariable v = currentPath.get(x);
+            if (var.equals(v.getVar())) {
+                return x;
+            }
+        }
+
+        return -1;
     }
 
 }
