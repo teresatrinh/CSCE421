@@ -789,7 +789,7 @@ public class Solver {
     }
 
     private int fccbjUnlabel(int i) {
-        if (i == 0) {
+        if (i <= 0) {
             this.status = "impossible";
             return -1;
         }
