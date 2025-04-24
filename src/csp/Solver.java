@@ -619,11 +619,11 @@ public class Solver {
         long end = System.currentTimeMillis();
         this.cpuTime = end - start;
 
-        // String s = printCSV1();
-        this.printStats("FC");
+        String s = printCSV1();
+        //this.printStats("FC");
         
         if (status.equals("solution")) {
-            printSolution();
+            //printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
 
@@ -650,13 +650,13 @@ public class Solver {
             end = System.currentTimeMillis();
             this.cpuTime = end - start;
     
-            printFinalStats();
-            System.out.println("Number of solutions: " + solution);
+            //printFinalStats();
+            //System.out.println("Number of solutions: " + solution);
         } else {
-            System.out.println("First solution: No solutions");
+            //System.out.println("First solution: No solutions");
         }
 
-        //printCSV2(s, solution);
+        printCSV2(s, solution);
     }
 
     // this method will help select the next variable for dynamic ordering
@@ -810,6 +810,11 @@ public class Solver {
         }
 
         int h = Math.max(max1, max2);
+
+        if (h < 0) {
+            return -1;
+        }
+
         conflictSet.get(h).addAll(conflictSet.get(i));
         conflictSet.get(h).addAll(pastFC.get(i));
         conflictSet.get(h).remove(h);
@@ -821,7 +826,9 @@ public class Solver {
         }
 
         undoReduction(h);
-        currentDomain.get(h).removeValue(currentPath.get(h).getValue());
+        if (!currentDomain.isEmpty()) {
+            currentDomain.get(h).removeValue(currentPath.get(h).getValue());
+        }
         consistent = !currentDomain.get(h).isEmpty();
         this.bt++;
 
@@ -864,11 +871,11 @@ public class Solver {
         long end = System.currentTimeMillis();
         this.cpuTime = end - start;
 
-        // String s = printCSV1();
-        this.printStats("FC-CBJ");
+        String s = printCSV1();
+        //this.printStats("FC-CBJ");
         
         if (status.equals("solution")) {
-            printSolution();
+            //printSolution();
             currentDomain.get(currentDomain.size()-1).removeValue(currentPath.get(currentDomain.size()-1).getValue());
             i--;
 
@@ -895,13 +902,13 @@ public class Solver {
             end = System.currentTimeMillis();
             this.cpuTime = end - start;
     
-            printFinalStats();
-            System.out.println("Number of solutions: " + solution);
+            //printFinalStats();
+            //System.out.println("Number of solutions: " + solution);
         } else {
-            System.out.println("First solution: No solutions");
+            //System.out.println("First solution: No solutions");
         }
 
-        //printCSV2(s, solution);
+       printCSV2(s, solution);
     }
 
     private int getIndex(Variable var) {

@@ -34,6 +34,11 @@ public class Domain {
     }
 
     public void removeValue(int a) {
+
+        if (this.values.length == 0) {
+            return;
+        }
+
         int[] newValues = new int[this.values.length - 1];
         int index = 0;
         if (this.contains(a)){

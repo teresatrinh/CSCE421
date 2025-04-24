@@ -1,5 +1,7 @@
-for i in $(seq 2 9); do
-    for j in $(seq 0 49); do
-        ./runProgram.sh -f input/v32_d8_p20/v32_d8_p20_t${i}0/v32_d8_p20_t${i}0_${j}.xcsp -a ac3 >> output3.csv
+for i in $(seq 1 9); do
+    for j in $(seq 0 2); do
+        for k in $(seq 0 9); do 
+            ./runProgram.sh -f input/random-n20-a6-d25/t${i}/${j}${k}-n20-a6-d25-t${i}-k2.xml -s FC -u LX >> outputFC-FCCBJ.csv
+        done
     done
 done
